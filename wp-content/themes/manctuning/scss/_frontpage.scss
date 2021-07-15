@@ -1,0 +1,49 @@
+@media (min-width: 280px) and (max-width: 1199px) {
+	.pokazat_vse_mob {
+		//display: block;
+	}
+	.pokazat_vse_desk {
+		display: none;
+	}
+}
+
+@media (min-width: 1200px) {
+	.pokazat_vse_mob {
+		display: none;
+	}
+	.pokazat_vse_desk {
+		//display: block;
+	}
+}
+
+// //Readmore // https://snipp.ru/jquery/show-hide-text =============================
+.content_toggle {display: none;}
+@media (max-width: 768px) {
+	.content_block {
+		overflow: hidden;
+		position: relative;    
+	}
+	.content_block.hide {
+		height: 120px;
+	}
+	.content_block.hide:after{
+		content: "";
+		display: block;
+		height: 40px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 75%);
+	}
+	.content_toggle {
+		display: inline-block;
+		padding: 15px 20px;
+		background: #ff0027;
+		color: #ffffff;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+}

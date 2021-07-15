@@ -1,0 +1,530 @@
+<Categories>
+	<Category name="Ремонт и строительство" avito_standart="dom">
+		<GoodsType name="Двери"/>
+		<GoodsType name="Инструменты"/>
+		<GoodsType name="Камины и обогреватели"/>
+		<GoodsType name="Окна и балконы"/>
+		<GoodsType name="Потолки"/>
+		<GoodsType name="Садовая техника"/>
+		<GoodsType name="Сантехника и сауна"/>
+		<GoodsType name="Стройматериалы">
+			<GoodsSubType name="Изоляция"/>
+			<GoodsSubType name="Крепёж"/>
+			<GoodsSubType name="Кровля и водосток"/>
+			<GoodsSubType name="Лаки и краски"/>
+			<GoodsSubType name="Листовые материалы"/>
+			<GoodsSubType name="Металлопрокат"/>
+			<GoodsSubType name="Общестроительные материалы"/>
+			<GoodsSubType name="Отделка"/>
+			<GoodsSubType name="Пиломатериалы"/>
+			<GoodsSubType name="Строительные смеси"/>
+			<GoodsSubType name="Строительство стен"/>
+			<GoodsSubType name="Электрика"/>
+			<GoodsSubType name="Другое"/>
+		</GoodsType>
+	</Category>
+	<Category name="Мебель и интерьер" avito_standart="dom">
+		<GoodsType name="Компьютерные столы и кресла"/>
+		<GoodsType name="Кровати, диваны и кресла"/>
+		<GoodsType name="Кухонные гарнитуры"/>
+		<GoodsType name="Освещение"/>
+		<GoodsType name="Подставки и тумбы"/>
+		<GoodsType name="Предметы интерьера, искусство"/>
+		<GoodsType name="Столы и стулья"/>
+		<GoodsType name="Текстиль и ковры"/>
+		<GoodsType name="Шкафы и комоды"/>
+		<GoodsType name="Другое"/>
+	</Category>
+	<Category name="Бытовая техника" avito_standart="dom">
+		<GoodsType name="Пылесосы"/>
+		<GoodsType name="Стиральные машины"/>
+		<GoodsType name="Утюги"/>
+		<GoodsType name="Швейные машины"/>
+		<GoodsType name="Бритвы и триммеры"/>
+		<GoodsType name="Машинки для стрижки"/>
+		<GoodsType name="Фены и приборы для укладки"/>
+		<GoodsType name="Эпиляторы"/>
+		<GoodsType name="Вытяжки"/>
+		<GoodsType name="Мелкая кухонная техника"/>
+		<GoodsType name="Микроволновые печи"/>
+		<GoodsType name="Плиты"/>
+		<GoodsType name="Посудомоечные машины"/>
+		<GoodsType name="Холодильники и морозильные камеры"/>
+		<GoodsType name="Вентиляторы"/>
+		<GoodsType name="Кондиционеры"/>
+		<GoodsType name="Обогреватели"/>
+		<GoodsType name="Очистители воздуха"/>
+		<GoodsType name="Термометры и метеостанции"/>
+		<GoodsType name="Другое"/>
+	</Category>
+	<Category name="Посуда и товары для кухни" avito_standart="dom">
+		<GoodsType name="Посуда"/>
+		<GoodsType name="Товары для кухни"/>
+	</Category>
+	<Category name="Растения" avito_standart="dom">
+	</Category>
+	<Category name="Продукты питания" avito_standart="dom">
+	</Category>
+	<Category name="Телефоны" avito_standart="tehnika">
+		<GoodsType name="Acer"/>
+		<GoodsType name="Alcatel"/>
+		<GoodsType name="ASUS"/>
+		<GoodsType name="BlackBerry"/>
+		<GoodsType name="BQ"/>
+		<GoodsType name="DEXP"/>
+		<GoodsType name="Explay"/>
+		<GoodsType name="Fly"/>
+		<GoodsType name="Highscreen"/>
+		<GoodsType name="HTC"/>
+		<GoodsType name="Huawei"/>
+		<GoodsType name="iPhone"/>
+		<GoodsType name="Lenovo"/>
+		<GoodsType name="LG"/>
+		<GoodsType name="Meizu"/>
+		<GoodsType name="Micromax"/>
+		<GoodsType name="Microsoft"/>
+		<GoodsType name="Motorola"/>
+		<GoodsType name="MTS"/>
+		<GoodsType name="Nokia"/>
+		<GoodsType name="Panasonic"/>
+		<GoodsType name="Philips"/>
+		<GoodsType name="Prestigio"/>
+		<GoodsType name="Samsung"/>
+		<GoodsType name="Siemens"/>
+		<GoodsType name="SkyLink"/>
+		<GoodsType name="Sony"/>
+		<GoodsType name="teXet"/>
+		<GoodsType name="Vertu"/>
+		<GoodsType name="Xiaomi"/>
+		<GoodsType name="ZTE"/>
+		<GoodsType name="Другие марки"/>
+		<GoodsType name="Рации"/>
+		<GoodsType name="Стационарные телефоны"/>
+		<GoodsType name="Аксессуары"/>
+		<GoodsType name="Аккумуляторы"/>
+		<GoodsType name="Гарнитуры и наушники"/>
+		<GoodsType name="Зарядные устройства"/>
+		<GoodsType name="Кабели и адаптеры"/>
+		<GoodsType name="Модемы и роутеры"/>
+		<GoodsType name="Чехлы и плёнки"/>
+		<GoodsType name="Запчасти"/>
+	</Category>
+	<Category name="Аудио и видео" avito_standart="tehnika">
+		<GoodsType name="MP3-плееры"/>
+		<GoodsType name="Акустика, колонки, сабвуферы"/>
+		<GoodsType name="Видео, DVD и Blu-ray плееры"/>
+		<GoodsType name="Видеокамеры"/>
+		<GoodsType name="Кабели и адаптеры"/>
+		<GoodsType name="Микрофоны"/>
+		<GoodsType name="Музыка и фильмы"/>
+		<GoodsType name="Музыкальные центры, магнитолы"/>
+		<GoodsType name="Наушники"/>
+		<GoodsType name="Телевизоры и проекторы"/>
+		<GoodsType name="Усилители и ресиверы"/>
+		<GoodsType name="Аксессуары"/>
+	</Category>
+	<Category name="Товары для компьютера" avito_standart="tehnika">
+		<GoodsType name="Акустика"/>
+		<GoodsType name="Веб-камеры"/>
+		<GoodsType name="Джойстики и рули"/>
+		<GoodsType name="Клавиатуры и мыши"/>
+		<GoodsType name="Комплектующие"/>
+		<GoodsType name="CD, DVD и Blu-ray приводы"/>
+		<GoodsType name="Блоки питания"/>
+		<GoodsType name="Видеокарты"/>
+		<GoodsType name="Жёсткие диски"/>
+		<GoodsType name="Звуковые карты"/>
+		<GoodsType name="Контроллеры"/>
+		<GoodsType name="Корпусы"/>
+		<GoodsType name="Материнские платы"/>
+		<GoodsType name="Оперативная память"/>
+		<GoodsType name="Процессоры"/>
+		<GoodsType name="Системы охлаждения"/>	
+		<GoodsType name="Мониторы"/>
+		<GoodsType name="Переносные жёсткие диски"/>
+		<GoodsType name="Сетевое оборудование"/>
+		<GoodsType name="ТВ-тюнеры"/>
+		<GoodsType name="Флэшки и карты памяти"/>
+		<GoodsType name="Аксессуары"/>
+	</Category>
+	<Category name="Фототехника" avito_standart="tehnika">
+		<GoodsType name="Компактные фотоаппараты"/>
+		<GoodsType name="Зеркальные фотоаппараты"/>
+		<GoodsType name="Плёночные фотоаппараты"/>
+		<GoodsType name="Бинокли и телескопы"/>
+		<GoodsType name="Объективы"/>
+		<GoodsType name="Оборудование и аксессуары"/>
+	</Category>
+	<Category name="Игры, приставки и программы" avito_standart="tehnika">
+		<GoodsType name="Игровые приставки"/>
+		<GoodsType name="Игры для приставок"/>
+		<GoodsType name="Компьютерные игры"/>
+		<GoodsType name="Программы"/>
+	</Category>
+	<Category name="Оргтехника и расходники" avito_standart="tehnika">
+		<GoodsType name="МФУ, копиры и сканеры"/>
+		<GoodsType name="Принтеры"/>
+		<GoodsType name="Телефония"/>
+		<GoodsType name="ИБП, сетевые фильтры"/>
+		<GoodsType name="Уничтожители бумаг"/>
+		<GoodsType name="Расходные материалы"/>
+		<GoodsType name="Блоки питания и батареи"/>
+		<GoodsType name="Болванки"/>
+		<GoodsType name="Бумага"/>
+		<GoodsType name="Кабели и адаптеры"/>
+		<GoodsType name="Картриджи"/>
+		<GoodsType name="Канцелярия"/>
+	</Category>
+	<Category name="Планшеты и электронные книги" avito_standart="tehnika">
+		<GoodsType name="Планшеты"/>
+		<GoodsType name="Электронные книги"/>
+		<GoodsType name="Аксессуары"/>
+	</Category>
+	<Category name="Ноутбуки" avito_standart="tehnika">
+		<GoodsType name="Acer"/>
+		<GoodsType name="Apple"/>
+		<GoodsType name="ASUS"/>
+		<GoodsType name="Compaq"/>
+		<GoodsType name="Dell"/>
+		<GoodsType name="Fujitsu"/>
+		<GoodsType name="HP"/>
+		<GoodsType name="Huawei"/>
+		<GoodsType name="Lenovo"/>
+		<GoodsType name="MSI"/>
+		<GoodsType name="Packard Bell"/>
+		<GoodsType name="Microsoft"/>
+		<GoodsType name="Samsung"/>
+		<GoodsType name="Sony"/>
+		<GoodsType name="Toshiba"/>
+		<GoodsType name="Xiaomi"/>
+		<GoodsType name="Другой"/>
+	</Category>
+	<Category name="Готовый бизнес" avito_standart="business">
+		<GoodsType name="Интернет-магазин"/>
+		<GoodsType name="Общественное питание"/>
+		<GoodsType name="Производство"/>
+		<GoodsType name="Развлечения"/>
+		<GoodsType name="Сельское хозяйство"/>
+		<GoodsType name="Строительство"/>
+		<GoodsType name="Сфера услуг"/>
+		<GoodsType name="Торговля"/>
+		<GoodsType name="Другое"/>
+	</Category>
+	<Category name="Оборудование для бизнеса" avito_standart="business">
+		<GoodsType name="Для магазина"/>
+		<GoodsType name="Для офиса"/>
+		<GoodsType name="Для ресторана"/>
+		<GoodsType name="Для салона красоты"/>
+		<GoodsType name="Промышленное"/>
+		<GoodsType name="Другое"/>
+	</Category>
+	<Category name="Одежда, обувь, аксессуары" avito_standart="lichnye_veshi">
+		<GoodsType name="Женская одежда"/>
+		<GoodsType name="Мужская одежда"/>
+		<GoodsType name="Аксессуары"/>
+	</Category>
+	<Category name="Детская одежда и обувь" avito_standart="lichnye_veshi">
+		<GoodsType name="Для девочек"/>
+		<GoodsType name="Для мальчиков"/>
+	</Category>
+	<Category name="Товары для детей и игрушки" avito_standart="lichnye_veshi">
+		<GoodsType name="Автомобильные кресла"/>
+		<GoodsType name="Велосипеды и самокаты"/>
+		<GoodsType name="Детская мебель"/>
+		<GoodsType name="Детские коляски"/>
+		<GoodsType name="Игрушки"/>
+		<GoodsType name="Постельные принадлежности"/>
+		<GoodsType name="Товары для кормления"/>
+		<GoodsType name="Товары для купания"/>
+		<GoodsType name="Товары для школы"/>
+	</Category>
+	<Category name="Часы и украшения" avito_standart="lichnye_veshi">
+		<GoodsType name="Бижутерия"/>
+		<GoodsType name="Часы"/>
+		<GoodsType name="Ювелирные изделия"/>
+	</Category>
+	<Category name="Красота и здоровье" avito_standart="lichnye_veshi">
+		<GoodsType name="Косметика"/>
+		<GoodsType name="Парфюмерия"/>
+		<GoodsType name="Приборы и аксессуары"/>
+		<GoodsType name="Средства гигиены"/>
+		<GoodsType name="Средства для волос"/>
+		<GoodsType name="Медицинские изделия"/>
+		<GoodsType name="Биологически активные добавки"/>
+	</Category>	
+	<Category name="Собаки" avito_standart="zhivotnye">
+		<GoodsType name="Акита"/>
+		<GoodsType name="Аляскинский маламут"/>
+		<GoodsType name="Американский бульдог"/>
+		<GoodsType name="Английский бульдог"/>
+		<GoodsType name="Басенджи"/>
+		<GoodsType name="Бассет"/>
+		<GoodsType name="Бельгийская овчарка"/>
+		<GoodsType name="Бельгийский гриффон"/>
+		<GoodsType name="Бернский зенненхунд"/>
+		<GoodsType name="Бивер"/>
+		<GoodsType name="Бигль"/>
+		<GoodsType name="Бишон фризе"/>
+		<GoodsType name="Бобтейл"/>
+		<GoodsType name="Боксер"/>
+		<GoodsType name="Болонки"/>
+		<GoodsType name="Бриар"/>
+		<GoodsType name="Брюссельский гриффон"/>
+		<GoodsType name="Бульмастиф"/>
+		<GoodsType name="Бультерьер"/>
+		<GoodsType name="Бурбуль"/>
+		<GoodsType name="Вельш-корги"/>
+		<GoodsType name="Вельштерьер"/>
+		<GoodsType name="Вест хайленд вайт терьер"/>
+		<GoodsType name="Восточноевропейская овчарка"/>
+		<GoodsType name="Далматин"/>
+		<GoodsType name="Джек Рассел терьер"/>
+		<GoodsType name="Доберман"/>
+		<GoodsType name="Дог"/>
+		<GoodsType name="Ирландский терьер"/>
+		<GoodsType name="Йоркширский терьер"/>
+		<GoodsType name="Кавказская овчарка"/>
+		<GoodsType name="Кане Корсо"/>
+		<GoodsType name="Керн терьер"/>
+		<GoodsType name="Китайская хохлатая"/>
+		<GoodsType name="Кокер спаниель"/>
+		<GoodsType name="Колли"/>
+		<GoodsType name="Курцхаар"/>
+		<GoodsType name="Лабрадор"/>
+		<GoodsType name="Лайка"/>
+		<GoodsType name="Левретка"/>
+		<GoodsType name="Леонбергер"/>
+		<GoodsType name="Лхаса Апсо"/>
+		<GoodsType name="Мастиф"/>
+		<GoodsType name="Миттельшнауцер"/>
+		<GoodsType name="Мопс"/>
+		<GoodsType name="Московская сторожевая"/>
+		<GoodsType name="Немецкая овчарка"/>
+		<GoodsType name="Норвич терьер"/>
+		<GoodsType name="Ньюфаундленд"/>
+		<GoodsType name="Овчарка"/>
+		<GoodsType name="Папийон"/>
+		<GoodsType name="Пекинес"/>
+		<GoodsType name="Петербургская орхидея"/>
+		<GoodsType name="Питбуль"/>
+		<GoodsType name="Пойнтер"/>
+		<GoodsType name="Пти брабансон"/>
+		<GoodsType name="Пудель"/>
+		<GoodsType name="Ретривер"/>
+		<GoodsType name="Ризеншнауцер"/>
+		<GoodsType name="Родезийский риджбек"/>
+		<GoodsType name="Ротвейлер"/>
+		<GoodsType name="Русская борзая"/>
+		<GoodsType name="Самоедская лайка"/>
+		<GoodsType name="Сенбернар"/>
+		<GoodsType name="Сеттер"/>
+		<GoodsType name="Сибирский хаски"/>
+		<GoodsType name="Скотч-терьер"/>
+		<GoodsType name="Спаниель"/>
+		<GoodsType name="Среднеазиатская овчарка"/>
+		<GoodsType name="Стаффордширский терьер"/>
+		<GoodsType name="Такса"/>
+		<GoodsType name="Той-пудель"/>
+		<GoodsType name="Той-терьер"/>
+		<GoodsType name="Фландрский бувье"/>
+		<GoodsType name="Фокстерьер"/>
+		<GoodsType name="Французская овчарка"/>
+		<GoodsType name="Французский бульдог"/>
+		<GoodsType name="Цвергпинчер"/>
+		<GoodsType name="Цвергшнауцер"/>
+		<GoodsType name="Чау-чау"/>
+		<GoodsType name="Чихуахуа"/>
+		<GoodsType name="Шарпей"/>
+		<GoodsType name="Швейцарская овчарка"/>
+		<GoodsType name="Шелти"/>
+		<GoodsType name="Ши-тцу"/>
+		<GoodsType name="Шпиц"/>
+		<GoodsType name="Эрдельтерьер"/>
+		<GoodsType name="Ягдтерьер"/>
+		<GoodsType name="Японский хин"/>
+		<GoodsType name="Другая"/>
+	</Category>
+	<Category name="Кошки" avito_standart="zhivotnye">
+		<GoodsType name="Абиссинская"/>
+		<GoodsType name="Американский кёрл"/>
+		<GoodsType name="Балинез"/>
+		<GoodsType name="Бенгальская"/>
+		<GoodsType name="Британская"/>
+		<GoodsType name="Бурманская"/>
+		<GoodsType name="Девон-рекс"/>
+		<GoodsType name="Донской сфинкс"/>
+		<GoodsType name="Европейская"/>
+		<GoodsType name="Канадский сфинкс"/>
+		<GoodsType name="Корниш-рекс"/>
+		<GoodsType name="Курильский бобтейл"/>
+		<GoodsType name="Ла-перм лаперм"/>
+		<GoodsType name="Манчкин"/>
+		<GoodsType name="Мейн-кун"/>
+		<GoodsType name="Меконгский бобтейл"/>
+		<GoodsType name="Невская маскарадная"/>
+		<GoodsType name="Норвежская лесная"/>
+		<GoodsType name="Ориентальная"/>
+		<GoodsType name="Оцикет"/>
+		<GoodsType name="Персидская"/>
+		<GoodsType name="Петерболд"/>
+		<GoodsType name="Русская голубая"/>
+		<GoodsType name="Селкирк-рекс"/>
+		<GoodsType name="Сиамская"/>
+		<GoodsType name="Сибирская"/>
+		<GoodsType name="Сингапурская"/>
+		<GoodsType name="Сомалийская"/>
+		<GoodsType name="Тайская"/>
+		<GoodsType name="Турецкая ангора"/>
+		<GoodsType name="Уральский рекс"/>
+		<GoodsType name="Шотландская"/>
+		<GoodsType name="Экзотическая"/>
+		<GoodsType name="Японский бобтейл"/>
+		<GoodsType name="Другая"/>
+	</Category>
+	<Category name="Птицы" avito_standart="zhivotnye">
+	</Category>
+	<Category name="Аквариум" avito_standart="zhivotnye">
+	</Category>
+	<Category name="Другие животные" avito_standart="zhivotnye">
+		<GoodsType name="Амфибии"/>
+		<GoodsType name="Грызуны"/>
+		<GoodsType name="Кролики"/>
+		<GoodsType name="Лошади"/>
+		<GoodsType name="Рептилии"/>
+		<GoodsType name="С/х животные"/>
+		<GoodsType name="Хорьки"/>
+		<GoodsType name="Другое"/>
+	</Category>
+	<Category name="Товары для животных" avito_standart="zhivotnye">
+	</Category>
+	<Category name="Запчасти и аксессуары" avito_standart="zapchasti">
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Патрубки вентиляции"/>
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Поршни, шатуны, кольца"/>
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Приводные ремни, натяжители"/>
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Прокладки и ремкомплекты"/>
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Ремни, цепи, элементы ГРМ"/>
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Турбины, компрессоры"/>
+		<GoodsType name="Запчасти / Для автомобилей / Двигатель / Электродвигатели и компоненты"/>
+		<GoodsType name="Запчасти / Для автомобилей / Запчасти для ТО"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Балки, лонжероны"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Бамперы"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Брызговики"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Двери"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Заглушки"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Замки"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Защита"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Зеркала"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Кабина"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Капот"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Крепления"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Крылья"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Крыша"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Крышка, дверь багажника"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Кузов по частям"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Кузов целиком"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Лючок бензобака"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Молдинги, накладки"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Пороги"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Рама"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Решетка радиатора"/>
+		<GoodsType name="Запчасти / Для автомобилей / Кузов / Стойка кузова"/>
+		<GoodsType name="Запчасти / Для автомобилей / Подвеска"/>
+		<GoodsType name="Запчасти / Для автомобилей / Рулевое управление"/>
+		<GoodsType name="Запчасти / Для автомобилей / Салон"/>
+		<GoodsType name="Запчасти / Для автомобилей / Система охлаждения"/>
+		<GoodsType name="Запчасти / Для автомобилей / Стекла"/>
+		<GoodsType name="Запчасти / Для автомобилей / Топливная и выхлопная системы"/>
+		<GoodsType name="Запчасти / Для автомобилей / Тормозная система"/>
+		<GoodsType name="Запчасти / Для автомобилей / Трансмиссия и привод"/>
+		<GoodsType name="Запчасти / Для автомобилей / Электрооборудование"/>
+		<GoodsType name="Запчасти / Для мототехники"/>
+		<GoodsType name="Запчасти / Для спецтехники"/>
+		<GoodsType name="Запчасти / Для водного транспорта"/>
+		<GoodsType name="Аксессуары"/>
+		<GoodsType name="GPS-навигаторы"/>
+		<GoodsType name="Автокосметика и автохимия"/>
+		<GoodsType name="Аудио- и видеотехника"/>
+		<GoodsType name="Багажники и фаркопы"/>
+		<GoodsType name="Инструменты"/>
+		<GoodsType name="Прицепы"/>
+		<GoodsType name="Противоугонные устройства / Автосигнализации"/>
+		<GoodsType name="Противоугонные устройства / Иммобилайзеры"/>
+		<GoodsType name="Противоугонные устройства / Механические блокираторы"/>
+		<GoodsType name="Противоугонные устройства / Спутниковые системы"/>
+		<GoodsType name="Тюнинг"/>
+		<GoodsType name="Экипировка"/> 
+	</Category>
+	<Category name="Билеты и путешествия" avito_standart="hobby">
+		<GoodsType name="Карты, купоны"/>
+		<GoodsType name="Концерты"/>
+		<GoodsType name="Путешествия"/>
+		<GoodsType name="Спорт"/>
+		<GoodsType name="Театр, опера, балет"/>
+		<GoodsType name="Цирк, кино"/>
+		<GoodsType name="Шоу, мюзикл"/>
+	</Category>
+	<Category name="Велосипеды" avito_standart="hobby">
+		<GoodsType name="Горные"/>
+		<GoodsType name="Дорожные"/>
+		<GoodsType name="BMX"/>
+		<GoodsType name="Детские"/>
+		<GoodsType name="Запчасти и аксессуары"/>
+	</Category>
+	<Category name="Книги и журналы" avito_standart="hobby">
+		<GoodsType name="Журналы, газеты, брошюры"/>
+		<GoodsType name="Книги"/>
+		<GoodsType name="Учебная литература"/>
+	</Category>
+	<Category name="Коллекционирование" avito_standart="hobby">
+		<GoodsType name="Банкноты"/>
+		<GoodsType name="Билеты"/>
+		<GoodsType name="Вещи знаменитостей, автографы"/>
+		<GoodsType name="Военные вещи"/>
+		<GoodsType name="Грампластинки"/>
+		<GoodsType name="Документы"/>
+		<GoodsType name="Жетоны, медали, значки"/>
+		<GoodsType name="Игры"/>
+		<GoodsType name="Календари"/>
+		<GoodsType name="Картины"/>
+		<GoodsType name="Киндер-сюрприз"/>
+		<GoodsType name="Конверты и почтовые карточки"/>
+		<GoodsType name="Макеты оружия"/>
+		<GoodsType name="Марки"/>
+		<GoodsType name="Модели"/>
+		<GoodsType name="Монеты"/>
+		<GoodsType name="Открытки"/>
+		<GoodsType name="Пепельницы, зажигалки"/>
+		<GoodsType name="Пластиковые карточки"/>
+		<GoodsType name="Спортивные карточки"/>
+		<GoodsType name="Фотографии, письма"/>
+		<GoodsType name="Этикетки, бутылки, пробки"/>
+		<GoodsType name="Другое"/>
+	</Category>
+	<Category name="Музыкальные инструменты" avito_standart="hobby">
+		<GoodsType name="Аккордеоны, гармони, баяны"/>
+		<GoodsType name="Гитары и другие струнные"/>
+		<GoodsType name="Духовые"/>
+		<GoodsType name="Пианино и другие клавишные"/>
+		<GoodsType name="Скрипки и другие смычковые"/>
+		<GoodsType name="Ударные"/>
+		<GoodsType name="Для студии и концертов"/>
+		<GoodsType name="Аксессуары"/>
+	</Category>
+	<Category name="Охота и рыбалка" avito_standart="hobby">
+	</Category>
+	<Category name="Спорт и отдых" avito_standart="hobby">
+		<GoodsType name="Бильярд и боулинг"/>
+		<GoodsType name="Дайвинг и водный спорт"/>
+		<GoodsType name="Единоборства"/>
+		<GoodsType name="Зимние виды спорта"/>
+		<GoodsType name="Игры с мячом"/>
+		<GoodsType name="Настольные игры"/>
+		<GoodsType name="Пейнтбол и страйкбол"/>
+		<GoodsType name="Ролики и скейтбординг"/>
+		<GoodsType name="Теннис, бадминтон, пинг-понг"/>
+		<GoodsType name="Туризм"/>
+		<GoodsType name="Фитнес и тренажёры"/>
+		<GoodsType name="Спортивное питание"/>
+		<GoodsType name="Другое"/>
+	</Category>
+</Categories>

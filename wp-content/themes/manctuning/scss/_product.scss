@@ -1,0 +1,17 @@
+.single-product {
+
+	h1 {
+		font-size: 30px;		
+	}
+
+	.star-rating {
+		float: none;
+		overflow: auto;
+		position: static;
+		height: auto;
+		line-height: 1;
+		font-size: 1em;
+		width: auto;
+		font-family: none;
+	}
+}

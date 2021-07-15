@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+
+	<title>MANCTUNING</title>
+    <meta property="og:title" content="" /> 
+    <meta property="og:description" content="" />
+    <meta name="title" content="" /> 
+    <meta name="description" content="" /> 
+	<link href=favicon.png rel=”shortcut icon” type=”image/x-icon”>
+	<link rel="shortcut icon" href="#">
+	<link rel="shortcut icon" href="images/logo.png" type="image/png" />	
+</head>
+<body>
+
+<!-- modal-card -->
+<div class="modal b-modal-card fade" id="modal-card2" tabindex="-1" role="dialog" aria-labelledby="modal-card2" aria-hidden="true">
+    <div class="modal-dialog">
+		<button class="btn-close" data-dismiss="modal">+</button>
+		<div class="b-card-content">
+			<div class="b-card-slider">
+				<div class="b-card-slider__preview">
+					<div class="b-card-slider__preview__item">
+						<img data-lazy="images/b-card-slider__preview__item.png" alt="">
+					</div>
+					<div class="b-card-slider__preview__item">
+						<img data-lazy="images/b-card-slider__preview__item.png" alt="">
+					</div>
+					<div class="b-card-slider__preview__item">
+						<img data-lazy="images/b-card-slider__preview__item.png" alt="">
+					</div>																
+				</div>							
+				<div class="b-card-slider__content">
+					<a data-fancybox="images/card/" class="b-card-slider__content__item" href="images/card/b-card-slider__big.png">
+						<img data-lazy="images/card/b-card-slider__big.png" alt="">
+					</a>
+					<a data-fancybox="images/card" class="b-card-slider__content__item" href="images/card/b-card-slider__big.png">
+						<img data-lazy="images/card/b-card-slider__big.png" alt="">
+					</a>
+					<a data-fancybox="images/card" class="b-card-slider__content__item" href="images/card/b-card-slider__big.png">
+						<img data-lazy="images/card/b-card-slider__big.png" alt="">
+					</a>																
+				</div>
+			</div>
+			<div class="b-card-right">
+				<span class="b-card-name">Диффузор заднего бампера 
+				G Sport BMW X5 G05</span>
+				<div class="b-card-article">Артикул: <span>MBW222-000070</span></div>
+				<div class="b-card-row">
+                    <div class="star-rating">
+                        <input type="radio" name="a1" class="rating" value="1" checked />
+                        <input type="radio" name="a2" class="rating" value="2" checked />
+                        <input type="radio" name="a3" class="rating" value="3" checked />
+                        <input type="radio" name="a4" class="rating" value="4" checked />
+                        <input type="radio" name="a5" class="rating" value="5" />
+                    </div>
+                    <div class="b-card-row__block">
+                    	<a href="" class="b-card-row__reviews">397 отзывов</a>
+                    	<span>купили более 300 раз</span>
+                    </div>
+                    <button class="b-card-fav"><span>В избранное</span></button>
+				</div>
+				<div class="b-card-status">Ожидается</div>
+				<div class="b-card-status inStock">В наличии на складе</div>
+				<div class="b-card-status not">Нет в наличии</div>
+
+				<div class="b-card-price">
+					<div class="b-card-price__item">
+						<p>Цена товара</p>
+						<span class="b-card-price__item__new">120 000 ₽</span>
+						<span class="b-card-price__item__old">140 000 ₽</span>
+					</div>
+					<div class="b-card-price__item">
+						<p>Цена установки</p>
+						<span class="b-card-price__item__new">22 000 ₽</span>
+						<span class="b-card-price__item__old">33 000 ₽</span>
+					</div>								
+				</div>
+				<div class="b-card-btns">
+					<button class="red-btn b-card-btn">Добавить в корзину</button>
+					<button class="btn-card-info">Подробнее</button>
+				</div>
+				<div class="b-card-items">
+					<div class="b-card-city">Ваш город: Симферополь</div>
+					<div class="b-card-items__container">
+						<div class="b-card-item">
+							<div class="b-card-item__ico icon-bus"></div>
+							<div class="b-card-item__text">
+								<b>Доставка</b>
+								<span>в среду, 16 сентября </span>
+								<i>1000 Руб.</i>
+								<a href="">Подробнее о доставке</a>
+							</div>
+						</div>
+						<div class="b-card-item">
+							<div class="b-card-item__ico icon-marker"></div>
+							<div class="b-card-item__text">
+								<b>Производитель</b>
+								<span>Landrover</span>
+							</div>
+						</div>									
+					</div>
+				</div>
+			</div>
+		</div>	
+    </div>
+</div>
+
+
+<!-- modal-booking -->
+<div class="modal b-modal fade" id="modal-booking" tabindex="-1" role="dialog" aria-labelledby="modal-booking" aria-hidden="true">
+    <div class="modal-dialog">
+		<button class="btn-close" data-dismiss="modal">+</button>
+		<div class="b-modal-title">
+			<b>Приехать на тюннинг просто 
+			как 1,2,3. </b>
+			<strong>Выберите услугу и запишитесь онлайн </strong>
+			<p>С вами свяжется менеджер, подтвердит визит и подготовит 
+			все необходимое для тюнинга или дополнительных услуг</p>
+		</div>
+		<form id="modal-booking-form" class="b-modal-content">
+			<div class="b-input-item b-col-50">
+				<input class="b-form-input icon-datapicker" name="date" type="date" placeholder="">
+			</div>
+			<div class="b-input-item b-col-50">
+				<input class="b-form-input icon-time" name="time" type="time" placeholder="">
+			</div>
+			<div class="b-input-item">
+				<select name="service" class="b-form-select">
+					<option value="">Выберите услугу</option>
+					<option value="Выберите услугу">Выберите услугу</option>
+					<option value="Выберите услугу1">Выберите услугу1</option>
+					<option value="Выберите услугу2">Выберите услугу2</option>
+					<option value="Выберите услугу3">Выберите услугу3</option>
+					<option value="Выберите услугу4">Выберите услугу4</option>
+				</select>
+			</div>
+			<div class="b-input-item b-col-50">
+				<input class="b-input-text" name="name" type="text" placeholder="Ваше имя" value="">
+			</div>
+			<div class="b-input-item b-col-50">
+				<input class="b-input-text" nem="phone" type="text" placeholder="Телефон" value="">
+			</div>	
+			<div class="b-input-item b-col-50">
+				<button class="b-modal-send red-btn" type="submit">Отправить</button>
+			</div>
+			<div class="b-input-item b-col-50">
+				<div class="b-check">
+					<input type="checkbox" checked id="a1" name="a1" />
+					<label for="a1"><span></span><i>Я согласен на обработку
+					персональных данных</i></label>  
+				</div>
+			</div>
+		</form>
+  </div>
+</div>
+
+
+<!-- modal-login -->
+<div class="modal b-modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+    <div class="modal-dialog">
+		<button class="btn-close" data-dismiss="modal">+</button>
+		<div class="b-modal-title text-center">
+			<b>Войти в кабинет</b>
+			<span>Пожалуйста введите свой номер телефона</span>
+		</div>
+		<form id="modal-login-form" class="b-modal-content">
+			<div class="b-input-item">
+				<input class="b-input-text text-center" name="phone" type="text" placeholder="" value="">
+			</div>
+			<div class="b-input-item">
+				<button type="submit" class="b-modal-send red-btn">Далее</button>
+			</div>
+		</form>
+		<div class="b-modal-bottom">
+			<p>Из личного кабинета можно оформить заказ со скидкой 5% 
+			на все товары а также открывается доступ к скрытой 
+			категории предложений</p>
+		</div>
+    </div>
+</div>
+
+
+<!-- modal-login2 -->
+<div class="modal b-modal fade" id="modal-login2" tabindex="-1" role="dialog" aria-labelledby="modal-login2" aria-hidden="true">
+    <div class="modal-dialog">
+		<button class="btn-close" data-dismiss="modal">+</button>
+		<div class="b-modal-title text-center">
+			<b>Войти в кабинет</b>
+			<span>Отправили вам код в смс, введите его</span>
+		</div>
+		<form id="modal-login2-form" class="b-modal-content">
+			<div class="b-input-item">
+				<input class="b-input-text text-center" name="code" type="text" placeholder="" value="44567">
+			</div>
+			<div class="b-input-item">
+				<button type="submit" class="b-modal-send red-btn">Войти</button>
+			</div>
+		</form>
+		<div class="b-modal-bottom">
+			<p>Из личного кабинета можно оформить заказ со скидкой 5% 
+			на все товары а также открывается доступ к скрытой 
+			категории предложений</p>
+		</div>
+    </div>
+</div>
+
+
+<!-- modal-callback -->
+<div class="modal b-modal fade" id="modal-callback" tabindex="-1" role="dialog" aria-labelledby="modal-callback" aria-hidden="true">
+    <div class="modal-dialog">
+		<button class="btn-close" data-dismiss="modal">+</button>
+		<div class="b-modal-title text-center">
+			<b>Перезвоните мне</b>
+			<span>Пожалуйста введите свой номер телефона</span>
+		</div>
+		<form id="modal-callback-form" class="b-modal-content">
+			<div class="b-input-item">
+				<input class="b-input-text text-center" name="name" type="text" placeholder="ваше имя" value="">
+			</div>
+			<div class="b-input-item">
+				<input class="b-input-text text-center" name="phone" type="text" placeholder="+7 (800) 22-33-33" value="">
+			</div>
+			<div class="b-input-item">
+				<button class="b-modal-send red-btn">Отправить</button>
+			</div>
+		</form>
+    </div>
+</div>
+
+<button class="btn-top"></button>
+
+<div class="b-container">
+	
+
+
+	<!-- begin b-header -->
+	<header class="b-header">	
+		<div class="b-header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl">
+						<a href="" class="b-logo"></a>
+						<div class="b-header-top__right">
+							<div class="b-header-top__right__top">
+								<div class="b-header-contacts">
+									<a href="tel:+7 (495) 204-28-43">+7 (495) <strong>204-28-43</strong></a>
+									<span>Ежедневно с 9:00-21:00</span>
+								</div>
+								<div class="b-header-top__right__wrapper">
+									<a href="" class="b-header-fav">
+										<!-- <span class="b-quantity">1</span> -->
+										<span class="b-header-fav__ico icon-heart"></span>
+									</a>
+									<a href="" class="b-header-cart">
+										<span class="b-quantity">1</span>
+										<span class="b-header-cart__ico icon-cart"></span>
+										<p>1 Товар, <b>8 000 Руб</b></p>
+									</a>
+								</div>
+							</div>
+							<div class="b-header-top__right__bottom">
+								<nav class="b-nav">
+									<ul>
+										<li><a href="">Магазин</a></li>
+										<li class="active"><a href="">Проекты</a></li>
+										<li><a href="">Услуги</a></li>
+										<li><a href="">Контакты</a></li>
+										<li><a href="">Доставка и оплата</a></li>
+									</ul>
+								</nav>
+								<div class="b-header-btns">
+									<button class="b-header-booking red-btn">Запись онлайн</button>
+									<button class="btn-login icon-user" data-toggle="modal" data-target="#modal-login">Войти</button>
+									<button class="btn-subscribe icon-youtube">Подписаться</button>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="b-header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl">
+						<div class="b-select-button js-search-button visible">
+							<span>Поиск</span>
+							<span class="b-select-button__arrow"><b></b></span>
+						</div>
+						<form action="" class="b-header-content__form">
+							<div class="b-select-container">
+								<select name="brand" class="b-select">
+									<option value="">Марка</option>
+									<option value="">Марка</option>
+									<option value="">Марка</option>
+								</select>
+							</div>
+							<div class="b-select-container">
+								<select name="model" class="b-select">
+									<option value="">Модель</option>
+									<option value="">Модель</option>
+									<option value="">Модель</option>
+								</select>
+							</div>
+							<div class="b-select-container">
+								<select name="breed" class="b-select">
+									<option value="">Поколение</option>
+									<option value="">Поколение</option>
+									<option value="">Поколение</option>
+								</select>
+							</div>
+							<div class="b-select-container">
+								<select name="type" class="b-select">
+									<option value="">Тип оборудования</option>
+									<option value="">Тип оборудования</option>
+									<option value="">Тип оборудования</option>
+								</select>
+							</div>																					
+							<div class="b-header-content__form__right">
+								<input class="b-header-form__btn" type="submit" value="Поиск">
+								<input class="b-header-content__form__input" type="text" name="text" placeholder="" value="2 товара">
+							</div>
+						</form>									
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- end b-header -->
+ 
+
+ 	<div class="b-wrapper">
+ 		<div class="container">
+ 			<div class="row">
+ 				<div class="col-xl">
+ 					<div class="b-breadcreambs">
+ 						<ul>
+ 							<li><a href="">Главная</a></li>
+ 							<li><a href="">Каталог</a></li>
+ 							<li><a href="">BMW</a></li>
+ 							<li><a href="">X5</a></li>
+ 							<li><a href="">G05 2018 - н.в</a></li>
+ 							<li><a href="">Диффузор заднего бампера G Sport BMW X5 G05</a></li>
+ 						</ul>
+ 					</div>
+					
+					<button class="mbtn red-btn cart-modal" data-toggle="modal" data-target="#modal-card2">modal-card</button>
+					<button class="mbtn red-btn cart-modal" data-toggle="modal" data-target="#modal-booking">modal-booking</button>
+					<button class="mbtn red-btn cart-modal" data-toggle="modal" data-target="#modal-login">modal-login</button>
+					<button class="mbtn red-btn cart-modal" data-toggle="modal" data-target="#modal-login2">modal-login2</button>
+					<button class="mbtn red-btn cart-modal" data-toggle="modal" data-target="#modal-callback">modal-callback</button>
+
+
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+
+
+	
+	<section class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl"><h4>С этим товаром смотрят</h4></div>
+			</div>
+			<div class="b-items-row row">
+				<div class="b-item-col">
+					<div class="b-item__container">
+						<div class="b-item">
+							<div class="b-item-sale">-5%</div>
+							<button class="b-item-fav icon-heart"></button>
+							<a data-fancybox="images" href="images/b-item-img.png" class="b-item-img">
+								<img class="lazy" data-original="images/b-item-img.png" alt="">
+							</a>
+							<div class="b-item-content">
+								<span class="b-item-number">MBW222-000070</span>
+								<a href="" class="b-item-name">Бампер задний 6.3 AMG 
+							Mercedes ML W166</a>
+								<div class="b-item-price">
+									<span class="b-item-price__new">120 000 руб.</span>
+									<span class="b-item-price__old">- 50 000  руб.</span>
+								</div>
+							</div>
+							<div class="b-item-bottom">
+								<div class="b-item-row">
+		                        <div class="star-rating">
+		                            <input type="radio" name="a1" class="rating" value="1" checked />
+		                            <input type="radio" name="a2" class="rating" value="2" checked />
+		                            <input type="radio" name="a3" class="rating" value="3" checked />
+		                            <input type="radio" name="a4" class="rating" value="4" checked />
+		                            <input type="radio" name="a5" class="rating" value="5" />
+		                        </div> 	
+		                        <a href="" class="b-item-review__link">397 отзывов</a>							
+								</div>
+								<button class="b-item-btn red-btn">В корзину</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="b-item-col">
+					<div class="b-item__container">
+						<div class="b-item">
+							<div class="b-item-sale">-5%</div>
+							<button class="b-item-fav icon-heart active"></button>
+							<a data-fancybox="images" href="images/b-item-img2.png" class="b-item-img">
+								<img class="lazy" data-original="images/b-item-img2.png" alt="">
+							</a>
+							<div class="b-item-content">
+								<span class="b-item-number">MBW222-000070</span>
+								<a href="" class="b-item-name">Бампер задний 6.3 AMG 
+							Mercedes ML W166</a>
+								<div class="b-item-price">
+									<span class="b-item-price__new">120 000 руб.</span>
+									<span class="b-item-price__old">- 50 000  руб.</span>
+								</div>
+							</div>
+							<div class="b-item-bottom">
+								<div class="b-item-row">
+		                        <div class="star-rating">
+		                            <input type="radio" name="a1" class="rating" value="1" checked />
+		                            <input type="radio" name="a2" class="rating" value="2" checked />
+		                            <input type="radio" name="a3" class="rating" value="3" checked />
+		                            <input type="radio" name="a4" class="rating" value="4" checked />
+		                            <input type="radio" name="a5" class="rating" value="5" />
+		                        </div> 	
+		                        <a href="" class="b-item-review__link">397 отзывов</a>							
+								</div>
+								<button class="b-item-btn red-btn">В корзину</button>
+							</div>
+						</div>
+					</div>
+				</div> 				
+				<div class="b-item-col">
+					<div class="b-item__container">
+						<div class="b-item">
+							<div class="b-item-sale">-5%</div>
+							<button class="b-item-fav icon-heart"></button>
+							<a data-fancybox="images" href="images/b-item-img3.png" class="b-item-img">
+								<img class="lazy" data-original="images/b-item-img3.png" alt="">
+							</a>
+							<div class="b-item-content">
+								<span class="b-item-number">MBW222-000070</span>
+								<a href="" class="b-item-name">Бампер задний 6.3 AMG 
+							Mercedes ML W166</a>
+								<div class="b-item-price">
+									<span class="b-item-price__new">120 000 руб.</span>
+									<span class="b-item-price__old">- 50 000  руб.</span>
+								</div>
+							</div>
+							<div class="b-item-bottom">
+								<div class="b-item-row">
+		                        <div class="star-rating">
+		                            <input type="radio" name="a1" class="rating" value="1" checked />
+		                            <input type="radio" name="a2" class="rating" value="2" checked />
+		                            <input type="radio" name="a3" class="rating" value="3" checked />
+		                            <input type="radio" name="a4" class="rating" value="4" checked />
+		                            <input type="radio" name="a5" class="rating" value="5" />
+		                        </div> 	
+		                        <a href="" class="b-item-review__link">397 отзывов</a>							
+								</div>
+								<button class="b-item-btn red-btn">В корзину</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="b-item-col">
+					<div class="b-item__container">
+						<div class="b-item">
+							<div class="b-item-sale">-5%</div>
+							<button class="b-item-fav icon-heart"></button>
+							<a data-fancybox="images" href="images/b-item-img3.png" class="b-item-img">
+								<img class="lazy" data-original="images/b-item-img3.png" alt="">
+							</a>
+							<div class="b-item-content">
+								<span class="b-item-number">MBW222-000070</span>
+								<a href="" class="b-item-name">Бампер задний 6.3 AMG 
+							Mercedes ML W166</a>
+								<div class="b-item-price">
+									<span class="b-item-price__new">120 000 руб.</span>
+									<span class="b-item-price__old">- 50 000  руб.</span>
+								</div>
+							</div>
+							<div class="b-item-bottom">
+								<div class="b-item-row">
+		                        <div class="star-rating">
+		                            <input type="radio" name="a1" class="rating" value="1" checked />
+		                            <input type="radio" name="a2" class="rating" value="2" checked />
+		                            <input type="radio" name="a3" class="rating" value="3" checked />
+		                            <input type="radio" name="a4" class="rating" value="4" checked />
+		                            <input type="radio" name="a5" class="rating" value="5" />
+		                        </div> 	
+		                        <a href="" class="b-item-review__link">397 отзывов</a>							
+								</div>
+								<button class="b-item-btn red-btn">В корзину</button>
+							</div>
+						</div>
+					</div>
+				</div>										 				
+			</div>
+		</div>
+	</section>
+
+
+
+ 
+	<!-- begin b-footer -->
+	<footer class="b-footer">
+		<div class="b-footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl">
+						<div class="b-footer-top__title">КАТАЛОГ</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="b-footer-col">
+						<ul>
+							<li><a href="">Дефлекторы</a></li>
+							<li><a href="">Ручки АКПП</a></li>
+							<li><a href="">Подкрылки</a></li>
+							<li><a href="">Обвесы</a></li>
+							<li><a href="">Комплекты рестайлинга. </a></li>
+							<li><a href="">Комплекты дооснащения</a></li>
+							<li><a href="">Решетки радиатора</a></li>
+							<li><a href="">Жабры</a></li>
+						</ul>
+					</div>
+					<div class="b-footer-col">
+						<ul>
+							<li><a href="">Пороги, подножки</a></li>
+							<li><a href="">Брызговики</a></li>
+							<li><a href="">Диффузоры. Накладки</a></li>
+							<li><a href="">Насадки на глушители</a></li>
+							<li><a href="">Задние бамперы</a></li>
+							<li><a href="">Передние бамперы</a></li>
+							<li><a href="">Рейлинги, поперечины</a></li>
+							<li><a href="">Зеркала</a></li>
+						</ul>
+					</div>
+					<div class="b-footer-col">
+						<ul>
+							<li><a href="">Юбки переднего бампера</a></li>
+							<li><a href="">сплиттеры, передние </a></li>
+							<li><a href="">диффузоры, уголки</a></li>
+							<li><a href="">Спойлеры</a></li>
+							<li><a href="">Комплекты дооснащения салона</a></li>
+							<li><a href="">Воздуховоды</a></li>
+							<li><a href="">Акустика. Динамики.</a></li>
+						</ul>
+					</div>
+					<div class="b-footer-col">
+						<ul>
+							<li><a href="">Передние фары</a></li>
+							<li><a href="">Поворотники</a></li>
+							<li><a href="">Противотуманные фары, </a></li>
+							<li><a href="">противотуманные фонари</a></li>
+							<li><a href="">Ходовые огни</a></li>
+							<li><a href="">Молдинги</a></li>
+							<li><a href="">Накладки на капот</a></li>
+							<li><a href="">Защита картера</a></li>
+						</ul>
+					</div>
+					<div class="b-footer-col">
+						<ul>
+							<li><a href="">Накладки под номер</a></li>
+							<li><a href="">Накладки на ручки</a></li>
+							<li><a href="">Расширители арок</a></li>
+							<li><a href="">Крылья</a></li>
+							<li><a href="">Стоп-сигналы</a></li>
+							<li><a href="">Накладки на пороги</a></li>
+							<li><a href="">Выхлопные системы</a></li>
+							<li><a href="">Эмблемы, логотипы, </a></li>
+						</ul>
+					</div>
+					<div class="b-footer-col">
+						<ul>
+							<li><a href="">Козырьки</a></li>
+							<li><a href="">Клыки</a></li>
+							<li><a href="">Подсветка номера</a></li>
+							<li><a href="">Накладки на багажник</a></li>
+							<li><a href="">Рули</a></li>
+							<li><a href="">Коврики</a></li>
+						</ul>
+					</div>															
+				</div>
+			</div>
+		</div>
+		<div class="b-footer-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl">
+						<div class="b-footer-left">
+							<div class="b-footer-logo"></div>
+							<span>manctuning.ru © 2015-2020</span>
+						</div>
+						<div class="b-footer-nav">
+							<ul>
+								<li><a href="">Магазин</a></li>
+								<li><a href="">Проекты</a></li>
+								<li><a href="">Услуги</a></li>
+								<li><a href="">О компании</a></li>
+								<li><a href="">Доставка и оплата</a></li>
+							</ul>
+						</div>
+						<div class="b-footer-right">
+							<div class="b-social">
+								<ul>
+									<li><a class="icon-vk" href=""></a></li>
+									<li><a class="icon-yt" href=""></a></li>
+									<li><a class="icon-fc" href=""></a></li>
+									<li><a class="icon-soc-inst" href=""></a></li>
+								</ul>
+							</div>
+							<a href="tel:+7 (495) 204-28-43" class="b-footer-phone">+7 (495) <b>204-28-43</b></a>
+							<span>Ежедневно с 9:00-21:00</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- end b-footer -->	
+
+</div>
+		
+   	
+	
+	<link href="css/jquery.fancybox.min.css" rel="stylesheet">
+	<link href="css/slick.css" rel="stylesheet">
+	<link href="css/select2.min.css" rel="stylesheet">
+	<link href="css/swiper.min.css" rel="stylesheet">
+	<link href="css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="css/rating.css" rel="stylesheet">
+	<link href="icomoon/style.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+
+	<script src="js/jquery.min.js"></script>
+	<script async src="js/jquery.lazyload.min.js"></script>
+	<script async src="js/jquery.fancybox.min.js"></script>
+	<script async src="js/select2.min.js"></script>
+	<script async src="js/slick.min.js"></script>
+	<script async src="js/jquery.maskedinput.min.js"></script>
+	<script async src="js/swiper.min.js"></script>
+	<script async src="js/swiper-bundle.min.js"></script>
+	<script async src="js/rating.js"></script>
+	<script async src="bootstrap/js/bootstrap.min.js"></script>
+	<script async src="js/script.js"></script>
+</body>
+</html>

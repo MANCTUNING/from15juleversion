@@ -1,0 +1,15 @@
+
+.op-content-item_initialized {
+	position: absolute;
+	opacity: 0;
+	left: 0;
+  top: 0;
+  transition: .6s;
+  /* display: none; */
+}
+.op-content-item_initialized.active {
+	opacity: 1;
+	position: relative;
+  width: 100%;
+  display: block;
+}

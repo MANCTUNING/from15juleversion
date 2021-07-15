@@ -1,0 +1,674 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce - amoCRM - Integration\n"
+"POT-Creation-Date: 2021-01-29 23:23+0300\n"
+"PO-Revision-Date: 2021-01-29 23:24+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+
+#: admin/LogHelper.php:88
+msgid "Log file has been cleared successfully."
+msgstr "Файл лога успешно очищен"
+
+#: admin/RenderFields.php:23 admin/WcSettingsPage.php:889
+msgid "Not chosen"
+msgstr "Не выбрано"
+
+#: admin/RenderFields.php:85 admin/RenderFields.php:146
+msgid "Update when send status change event or order changed"
+msgstr "Обновление при отправке события изменения статуса или изменении заказа"
+
+#: admin/ShopOrderTableColumn.php:29
+msgid "amo lead ID: "
+msgstr "amo сделка ID: "
+
+#: admin/ShopOrderTableColumn.php:31
+msgid "no data"
+msgstr "нет данных"
+
+#: admin/WcBulkOrderToCrm.php:33
+msgid "Send to amoCRM"
+msgstr "Отправить в amoCRM"
+
+#: admin/WcBulkOrderToCrm.php:85
+#, php-format
+msgid ""
+"%s orders registered for sending to CRM, the dispatch time depends on the "
+"number of orders."
+msgstr ""
+"%s заказов зарегистрировано для отправки в CRM, время обработки зависит от "
+"количества заказов."
+
+#: admin/WcSettingsPage.php:51
+msgid "WooCommerce - amoCRM - Integration"
+msgstr "WooCommerce - amoCRM - Integration"
+
+#: admin/WcSettingsPage.php:53
+msgid "Please verify the purchase code on the plugin settings page - "
+msgstr "Пожалуйста, укажите код покупки на странице настроек плагина - "
+
+#: admin/WcSettingsPage.php:57 admin/WcSettingsPage.php:257
+msgid "open"
+msgstr "открыть"
+
+#: admin/WcSettingsPage.php:84 admin/WcSettingsPage.php:115
+msgid "Integration settings check is successfully."
+msgstr "Проверка настроек прошла успешно."
+
+#: admin/WcSettingsPage.php:89
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+#: admin/WcSettingsPage.php:90
+msgid ""
+"To integrate with amoCRM, your must fill domain, login and API key field."
+msgstr ""
+"Для интеграции с amoCRM, вам необходимо заполнить поля домен, логин и API "
+"ключ."
+
+#: admin/WcSettingsPage.php:145
+msgid "Settings successfully updated."
+msgstr "Настройки успешно обновлены."
+
+#: admin/WcSettingsPage.php:187
+msgid "Successfully subscribe."
+msgstr "Успешно подписаны"
+
+#: admin/WcSettingsPage.php:192
+msgid "Successfully unsubscribe."
+msgstr "Успешно отписаны."
+
+#: admin/WcSettingsPage.php:218
+msgid ""
+"The link between orders and lead in amoCRM has been successfully deleted."
+msgstr "Связи заказов со сделками успешно удалены."
+
+#: admin/WcSettingsPage.php:228 admin/WcSettingsPage.php:229
+msgid "amoCRM"
+msgstr "amoCRM"
+
+#: admin/WcSettingsPage.php:245
+msgid "Fields cache updated successfully."
+msgstr "Кеш полей успешно обновлен."
+
+#: admin/WcSettingsPage.php:250
+msgid "Integration settings"
+msgstr "Настройка интеграции"
+
+#: admin/WcSettingsPage.php:255
+msgid "Plugin documentation: "
+msgstr "Документация плагина:"
+
+#: admin/WcSettingsPage.php:259
+msgid "Or open the folder `documentation` in the plugin and open index.html"
+msgstr "Или откройте папку `documentation` в плагине и откройте index.html"
+
+#: admin/WcSettingsPage.php:271
+msgid "Enable send orders"
+msgstr "Включить отправку заказов"
+
+#: admin/WcSettingsPage.php:284
+msgid ""
+"Create / update the status of the lead, and create / update the contact "
+"according to the order data.."
+msgstr ""
+"Создание/обновление статуса сделки и создание/обновление контакта на "
+"основании данных заказа."
+
+#: admin/WcSettingsPage.php:293
+msgid "Enable send users"
+msgstr "Включить отправку пользователей"
+
+#: admin/WcSettingsPage.php:306
+msgid ""
+"Create / update a contact when user registering / updates profile "
+"information."
+msgstr ""
+"Создание/обновление контакта, когда покупатель регистрируется/обновляет свой "
+"профиль."
+
+#: admin/WcSettingsPage.php:315
+msgid "Do not update contacts"
+msgstr "Не обновлять контакты"
+
+#: admin/WcSettingsPage.php:328
+msgid ""
+"If there is an existing contact, do not change its data, just associate it "
+"with a new lead."
+msgstr ""
+"Если найден существующий контакт, не изменять его данные, просто связать с "
+"новой сделкой."
+
+#: admin/WcSettingsPage.php:336
+msgid "Redirect URL"
+msgstr "Ссылка для редиректа"
+
+#: admin/WcSettingsPage.php:353
+msgid "Domain Name"
+msgstr "Домен"
+
+#: admin/WcSettingsPage.php:372
+msgid "domain of your amoCRM account (without http:// or https://)."
+msgstr "домен вашего аккаунта amoCRM (без http:// или https://)."
+
+#: admin/WcSettingsPage.php:382
+msgid "Secret key"
+msgstr "Секретный ключ"
+
+#: admin/WcSettingsPage.php:401
+msgid "Integration ID"
+msgstr "ID интеграции"
+
+#: admin/WcSettingsPage.php:420
+msgid "Authorization code"
+msgstr "Код авторизации"
+
+#: admin/WcSettingsPage.php:435
+msgid ""
+"Authorization code - will remain empty after saving the settings, as it is "
+"used once to get the first token"
+msgstr ""
+"Код авторизации - останется пустым после сохранения настроек, так как он "
+"используется один раз для получения первого токена"
+
+#: admin/WcSettingsPage.php:443
+msgid "Send type"
+msgstr "Тип отправки"
+
+#: admin/WcSettingsPage.php:451
+msgid "Immediately upon checkout"
+msgstr "Сразу при оформлении"
+
+#: admin/WcSettingsPage.php:456
+msgid "WP Cron"
+msgstr "WP Cron"
+
+#: admin/WcSettingsPage.php:467
+msgid "The number of registered order submit events pending"
+msgstr "Количество ожидающих зарегистрированных событий отправки заказа"
+
+#: admin/WcSettingsPage.php:479
+msgid "Enable logging"
+msgstr "Включить логирование"
+
+#: admin/WcSettingsPage.php:495
+msgid "Download log"
+msgstr "Скачать лог"
+
+#: admin/WcSettingsPage.php:499
+msgid "Clear log"
+msgstr "Очистить лог"
+
+#: admin/WcSettingsPage.php:508
+msgid "Save"
+msgstr "Сохранить"
+
+#: admin/WcSettingsPage.php:520
+msgid "Reload fields data from CRM"
+msgstr "Перезагрузить данные полей из CRM"
+
+#: admin/WcSettingsPage.php:523
+msgid "Fields mapping"
+msgstr "Настройка полей"
+
+#: admin/WcSettingsPage.php:528
+msgid "In the following fields, you can use these tags:"
+msgstr "В следующих полях вы можете использовать короткие коды:"
+
+#: admin/WcSettingsPage.php:660
+msgid "Additional tags"
+msgstr "Дополнительные тэги"
+
+#: admin/WcSettingsPage.php:694
+msgid "You can use any meta key if you need custom meta data"
+msgstr ""
+"Вы можете использовать любой мета-ключ, если вам нужны кастомные метаданные"
+
+#: admin/WcSettingsPage.php:716
+msgid "Lead fields"
+msgstr "Поля сделки"
+
+#: admin/WcSettingsPage.php:721
+msgid "Task fields"
+msgstr "Поля задачи"
+
+#: admin/WcSettingsPage.php:726
+msgid "Contact fields"
+msgstr "Поля контакта"
+
+#: admin/WcSettingsPage.php:731
+msgid "Company fields"
+msgstr "Поля компании"
+
+#: admin/WcSettingsPage.php:736
+msgid "Status mapping"
+msgstr "Соответствие статусов"
+
+#: admin/WcSettingsPage.php:741
+msgid "Lead price - auto set"
+msgstr "Сумма сделки - ставится автоматически"
+
+#: admin/WcSettingsPage.php:754 admin/WcSettingsPage.php:758
+msgid "Add a link to the order on the site in the note"
+msgstr "Добавить ссылку на заказ на сайте в примечании"
+
+#: admin/WcSettingsPage.php:774
+msgid "Create a task to deal"
+msgstr "Создавать задачу по сделке"
+
+#: admin/WcSettingsPage.php:792
+msgid ""
+"Re-send products from the order to the amoCRM. It will be useful if you edit "
+"the order. Only if \"Products\" is supported and enabled in your amoCRM."
+msgstr ""
+"Повторно отправлять товары из заказа в amoCRM. Будет полезно, если вы "
+"редактируете заказ. Только если \"Продукты\" поддерживаются и включены в "
+"вашем amoCRM."
+
+#: admin/WcSettingsPage.php:810 admin/WcSettingsPage.php:820
+msgid "Additional note"
+msgstr "Дополнительное примечание"
+
+#: admin/WcSettingsPage.php:826
+msgid ""
+"Please note that the plugin sends the standard order note automatically."
+msgstr ""
+"Обратите внимание, стандартное примечание к заказу, плагин отправляет "
+"автоматически."
+
+#: admin/WcSettingsPage.php:863
+msgid "Do not post status changes"
+msgstr "Не отправлять изменения статуса"
+
+#: admin/WcSettingsPage.php:934
+msgid ""
+"Check the availability of the transaction and if not found, then delete the "
+"order"
+msgstr "Проверять наличие сделки в CRM и если не найдена, то удалить заказ"
+
+#: admin/WcSettingsPage.php:948
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+#: admin/WcSettingsPage.php:953
+msgid "Use amoCRM webhooks"
+msgstr "Использовать amoCRM вебхуки"
+
+#: admin/WcSettingsPage.php:960
+msgid "Subscribe lead status changes"
+msgstr "Подписаться на изменение статуса сделки"
+
+#: admin/WcSettingsPage.php:968
+msgid "Unsubscribe lead status changes"
+msgstr "Отписаться от изменения статуса сделки"
+
+#: admin/WcSettingsPage.php:972
+msgid ""
+"You can use this if you want to accept changes in the status of a order, "
+"when the status changes in amoCRM"
+msgstr ""
+"Вы можете использовать это, если хотите принимать изменения в статусе "
+"заказа, когда меняется статус сделки в amoCRM"
+
+#: admin/WcSettingsPage.php:974
+msgid "Additionally"
+msgstr "Дополнительно"
+
+#: admin/WcSettingsPage.php:977
+msgid "Are you sure you want to do this? The action cannot be undone."
+msgstr "Вы уверены, что хотите это сделать? Действие нельзя отменить."
+
+#: admin/WcSettingsPage.php:979
+msgid "Remove from all orders information about lead ID from amoCRM"
+msgstr "Удалить из  всех заказов информацию об ID сделки из amoCRM"
+
+#: admin/WcSettingsPage.php:984
+msgid ""
+"You can use this if, for some reason, you want to remove information about "
+"the created lead in amoCRM from all orders on the site, so you get a "
+"situation as if orders have not yet been sent to amoCRM."
+msgstr ""
+"Вы можете использовать это, если по какой-то причине вы хотите удалить из "
+"всех заказов на сайте информацию о созданной сделке в amoCRM, таким образом "
+"получится ситуация, как будто заказы еще не отправлялись в amoCRM."
+
+#: admin/WcSettingsPage.php:1048
+msgid "License verification"
+msgstr "Проверка лицензии"
+
+#: admin/WcSettingsPage.php:1051
+msgid "verified"
+msgstr "проверен"
+
+#: admin/WcSettingsPage.php:1055
+msgid "please verify your purchase code"
+msgstr "пожалуйста, укажите код покупки"
+
+#: admin/WcSettingsPage.php:1064
+msgid "Purchase code"
+msgstr "Код покупки"
+
+#: admin/WcSettingsPage.php:1082
+msgid "Where Is My Purchase Code?"
+msgstr "Где найти код покупки?"
+
+#: admin/WcSettingsPage.php:1091
+msgid "Verify"
+msgstr "Активировать"
+
+#: admin/WcSettingsPage.php:1096
+msgid "Unverify"
+msgstr "Деактивировать"
+
+#: includes/Bootstrap.php:103
+msgid ""
+"To run the plug-in, you must first install and activate the Woocommerce "
+"plugin."
+msgstr ""
+"Для работы плагина сначала необходимо установить и активировать плагин "
+"Woocommerce."
+
+#: includes/Bootstrap.php:107
+msgid "Error while activating the Woocommerce - amoCRM - Integration"
+msgstr "Ошибка при активации плагина Woocommerce - amoCRM - Integration"
+
+#: includes/CrmFields.php:29 includes/CrmFields.php:67
+#: includes/CrmFields.php:76 includes/CrmFields.php:91
+#: includes/CrmFields.php:99 includes/CrmFields.php:114
+#: includes/CrmFields.php:122 includes/CrmFields.php:137
+msgid "String"
+msgstr "Строка"
+
+#: includes/CrmFields.php:30
+msgid "Lead name"
+msgstr "Имя сделки"
+
+#: includes/CrmFields.php:36 includes/CrmFields.php:42
+#: includes/CrmFields.php:47 includes/CrmFields.php:56
+#: includes/CrmFields.php:84 includes/CrmFields.php:107
+#: includes/CrmFields.php:130 includes/CrmFields.php:146
+msgid "Numeric"
+msgstr "Число"
+
+#: includes/CrmFields.php:37
+msgid "Pipeline / Status"
+msgstr "Воронка / Статус"
+
+#: includes/CrmFields.php:43
+msgid "Deal budget"
+msgstr "Бюджет сделки"
+
+#: includes/CrmFields.php:48 includes/CrmFields.php:85
+#: includes/CrmFields.php:108 includes/CrmFields.php:131
+msgid "Responsible"
+msgstr "Ответственный"
+
+#: includes/CrmFields.php:50
+msgid ""
+"you can specify several, separated by commas, then the requests will be "
+"distributed sequentially"
+msgstr ""
+"вы можете указать несколько ид, через запятую, тогда сделки будут "
+"распределяться последовательно"
+
+#: includes/CrmFields.php:57
+msgid "Contact ID"
+msgstr "ID контакта"
+
+#: includes/CrmFields.php:59
+msgid ""
+"you can specify the contact id, which will always be assigned to the lead"
+msgstr "вы можете указать id контакта, чтобы назначать все сделки ему"
+
+#: includes/CrmFields.php:68 includes/CrmFields.php:92
+#: includes/CrmFields.php:115
+msgid "Tags"
+msgstr "Тэги"
+
+#: includes/CrmFields.php:77
+msgid "Contact name"
+msgstr "Имя контакта"
+
+#: includes/CrmFields.php:100
+msgid "Company name"
+msgstr "Имя компании"
+
+#: includes/CrmFields.php:123
+msgid "Text"
+msgstr "Текст"
+
+#: includes/CrmFields.php:138
+msgid "Type"
+msgstr "Тип"
+
+#: includes/CrmFields.php:140
+msgid "Call"
+msgstr "Связаться с клиентом"
+
+#: includes/CrmFields.php:141
+msgid "Meeting"
+msgstr "Встреча"
+
+#: includes/CrmFields.php:148
+msgid "Number of minutes for deadline"
+msgstr "Количество минут до крайнего срока"
+
+#: includes/CrmFields.php:152
+msgid "after how many minutes after creation the task should be completed"
+msgstr "через сколько минут после создания задачи, она должна быть завершена"
+
+#: includes/Helper.php:36
+#, php-format
+msgid "Error code (%s): %s."
+msgstr "Код ошибки (%s): %s."
+
+#: includes/Helper.php:43
+msgid "An error occurred while writing the log file."
+msgstr "Произошла ошибка при записи лог файла."
+
+#: includes/Helper.php:97
+msgid ""
+"Please verify the purchase code on the plugin integration settings page - "
+msgstr "Пожалуйста, укажите код покупки на странице настройки интеграции - "
+
+#: includes/OrderToCrm.php:164
+msgid "Order"
+msgstr "Заказ"
+
+#: includes/OrderToCrm.php:280
+msgid "Added lead in CRM #"
+msgstr "Сделка добавлена в CRM #"
+
+#: includes/OrderToCrm.php:1125 includes/OrderToCrm.php:1149
+msgid "Delivery Date"
+msgstr "Дата доставки"
+
+#: includes/OrderToCrm.php:1183 includes/OrderToCrm.php:1317
+msgid "SKU"
+msgstr "Артикул"
+
+#: includes/OrderToCrm.php:1191
+msgid "Quantity"
+msgstr "Количество"
+
+#: includes/OrderToCrm.php:1195 includes/OrderToCrm.php:1234
+msgid "Summ"
+msgstr "Сумма"
+
+#: includes/OrderToCrm.php:1230 includes/OrderToCrm.php:1345
+#: includes/OrderToCrm.php:1353
+msgid "Shipping"
+msgstr "Доставка"
+
+#: includes/OrderToCrm.php:1270
+msgid "Payment"
+msgstr "Оплата"
+
+#: includes/WpApiChangeOrderStatusWebHookProcessing.php:124
+msgid "Order status changed from CRM"
+msgstr "Статус заказа изменен из CRM"
+
+#~ msgid ""
+#~ "Please note that `Status mapping` is not configured, orders will not be "
+#~ "sent."
+#~ msgstr ""
+#~ "Пожалуйста, обратите внимание, `Соответствие статусов` не настроено, "
+#~ "заказы не будут отправляться."
+
+#~ msgid "Login"
+#~ msgstr "Логин"
+
+#~ msgid "API key"
+#~ msgstr "API ключ"
+
+#~ msgid "Contact name and company name - auto set"
+#~ msgstr "Имя контакта и название компании - поставятся автоматически"
+
+#~ msgid "Enable send contacts"
+#~ msgstr "Включение отправки контактов"
+
+#~ msgid "Change order status API endpoint for amoCRM webhook"
+#~ msgstr "Ссылка для изменения статуса заказа, через amoCRM вебхук"
+
+#~ msgid "Lead name and price - auto set"
+#~ msgstr "Название сделки и сумма - установятся автоматически"
+
+#~ msgid "Send order with status"
+#~ msgstr "Отправлять заказ при статусе"
+
+#~ msgid "Once the order is in this status, it will be sent to the CRM."
+#~ msgstr ""
+#~ "Как только статус заказа изменится на указанный, он будет отправлен в CRM."
+
+#~ msgid "Uploaded files:"
+#~ msgstr "Загруженные файлы:"
+
+#~ msgid "Additional information about the sender:"
+#~ msgstr "Дополнительная информация об отправителе:"
+
+#~ msgid "IP-address: "
+#~ msgstr "IP-адрес:"
+
+#~ msgid "Date and time: "
+#~ msgstr "Дата и время:"
+
+#~ msgid "Referrer: "
+#~ msgstr "Реферер:"
+
+#~ msgid "Integration with amoCRM"
+#~ msgstr "Интеграция с amoCRM"
+
+#~ msgid "To integrate with amoCRM, you must fill in all fields."
+#~ msgstr "Для интеграции с amoCRM необходимо заполнить все поля."
+
+#~ msgid ""
+#~ "Formation of leads in amoCRM from the hits that users leave on your site, "
+#~ "using the Contact Form 7 plugin."
+#~ msgstr ""
+#~ "Формирование лидов в amoCRM из обращений, которые оставляют пользователи "
+#~ "на Вашем сайте, с помощью плагина Contact Form 7."
+
+#~ msgid "Change settings"
+#~ msgstr "Изменить настройки"
+
+#~ msgid "To work with the plugin, you must configure integration with amoCRM."
+#~ msgstr "Для работы плагина необходимо настроить интеграцию с amoCRM."
+
+#~ msgid "Go to setup"
+#~ msgstr "Перейти к настройке"
+
+#~ msgid ""
+#~ "The fields sent to the CRM are configured on the form editing page, on "
+#~ "the \"amoCRM\" tab."
+#~ msgstr ""
+#~ "Поля передаваемые в CRM настраиваются на странице редактирования формы, "
+#~ "на вкладке \"amoCRM\"."
+
+#~ msgid "Choose the type of lead that will be generated in CRM:"
+#~ msgstr "Выберите тип лида который будет формироваться в CRM:"
+
+#~ msgid "Lead"
+#~ msgstr "Имя сделки"
+
+#~ msgid "Deal (use fields contact and lead)"
+#~ msgstr "Сделка (используются поля сделки и контакта)"
+
+#~ msgid "Incoming Leads"
+#~ msgstr "Неразобранное"
+
+#~ msgid "Incoming Leads (use fields contact and lead)"
+#~ msgstr "Неразобранное (используются поля сделки и контакта)"
+
+#~ msgid "Fields for the \"Lead\""
+#~ msgstr "Поля для \"Сделки\""
+
+#~ msgid "Fields for \"Contact\""
+#~ msgstr "Поля для \"Контакта\""
+
+#~ msgid "Fields for a \"Note\" to a \"Contact\""
+#~ msgstr "Поля примечания для контакта"
+
+#~ msgid "Note text"
+#~ msgstr "Текст примечания"
+
+#~ msgid "ip, user agent, date and time, referrer - added auto"
+#~ msgstr "ip, user agent, date and time, referrer - добавляются автоматически"
+
+#~ msgid ""
+#~ "To run the plug-in, you must first install and activate the Contact Form "
+#~ "7 plugin."
+#~ msgstr ""
+#~ "Для работы плагина сначала необходимо установить и активировать плагин "
+#~ "Contact Form 7."
+
+#~ msgid ""
+#~ "Error while activating the Contact Form 7 plugin - amoCRM - Lead "
+#~ "Generation"
+#~ msgstr ""
+#~ "Ошибка при активации плагина Contact Form 7 - amoCRM - Lead Generation"
+
+#~ msgid "Response amoCRM: Error code (%d): %s. Check the settings."
+#~ msgstr "Ответ amoCRM: Код ошибки (%d): %s. Проверьте настройки."
+
+#~ msgid "An error occurred while verifying the connection to the amoCRM."
+#~ msgstr "Ошибка при проверке соединения с amoCRM."
+
+#~ msgid "Status"
+#~ msgstr "Статус"
+
+#~ msgid "Deal"
+#~ msgstr "Сделка"
+
+#~ msgid "Fields for a \"Note\" to a \"Contact\" (ONLY INCOMING LEADS)"
+#~ msgstr "Поля примечания для контакта (ТОЛЬКО ДЛЯ НЕРАЗОБРАННОГО)"
+
+#~ msgid "User Agent: "
+#~ msgstr "Б"
+
+#~ msgid "Allows you to create leads in amoCRM"
+#~ msgstr "Позволяет создавать лиды в amoCRM"
+
+#~ msgid "An error occurred while verifying the connection."
+#~ msgstr "Ошибка при проверке соединения с amoCRM."
+
+#~ msgid "Response amoCRM: Error (%d): %s. Check the settings."
+#~ msgstr "Ответ amoCRM: Код ошибки (%d): %s. Проверьте настройки."
+
+#~ msgid ""
+#~ "Formation of leads in amoCRM from the hits that users leave on your site, "
+#~ "using the Contact From 7 plugin."
+#~ msgstr ""
+#~ "Формирование лидов в amoCRM из обращений, которые оставляют пользователи "
+#~ "на Вашем сайте, с помощью плагина Contact Form 7."

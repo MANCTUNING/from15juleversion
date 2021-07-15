@@ -1,0 +1,54 @@
+.wppw_modal_base {
+
+	a {
+		color: #000 !important;
+	}
+
+	.modal-dialog {
+		//width: 100%;
+		@media (min-width:780px) {
+			min-width: 780px;
+		}
+	}
+
+	&__title {
+		display: block;
+		color: #292929;
+		font-size: 30px;
+		font-weight: 700;
+		line-height: 1.3;
+		margin: 0 0 1em 0;
+		text-align: left !important;
+		padding-left: 60px;
+		@media (min-width:780px) {
+			height: 50px;
+		}
+
+	}
+	.goto_woo_cart__title {
+		background: url('../images/popup/cart.png') no-repeat;
+	}
+	.woo_cart_fav__title {
+		background: url('../images/popup/fav.png') no-repeat;
+	}
+	.woo_cart_fav_remove__title {
+		background: url('../images/popup/remove.png') no-repeat;
+	}
+
+	&__buttons {
+		display: flex;
+		flex-flow: row wrap;
+
+		margin-top: 2em;
+	}
+
+	.checkout_button {
+		max-width: 250px;
+		margin-right: 2em;
+	}
+	.dismiss_modal {
+		max-width: 250px;
+		border: 1px solid #CCC;
+		color: #00131c;
+	}
+}
