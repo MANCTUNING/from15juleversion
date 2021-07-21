@@ -6,11 +6,11 @@ Tags: yml, yandex, market, export, woocommerce
 Author: Maxim Glazunov
 Author URI: https://icopydoc.ru
 License: GPLv2
-Version: 3.5.5
+Version: 3.6.2
 Text Domain: yml-for-yandex-market
 Domain Path: /languages/
 WC requires at least: 3.0.0
-WC tested up to: 5.4.1
+WC tested up to: 5.5.1
 */
 /*	Copyright YEAR PLUGIN_AUTHOR_NAME (email : djdiplomat@yandex.ru)
 
@@ -65,7 +65,7 @@ class YmlforYandexMarket {
 	define('yfym_NAME_DIR', $name_dir);
 	$yfym_keeplogs = yfym_optionGET('yfym_keeplogs');
 	define('yfym_KEEPLOGS', $yfym_keeplogs);
-	define('yfym_VER', '3.5.5');
+	define('yfym_VER', '3.6.2');
 	$yfym_version = yfym_optionGET('yfym_version');
   	if ($yfym_version !== yfym_VER) {yfym_set_new_options();} // автообновим настройки, если нужно	
 	if (!defined('yfym_ALLNUMFEED')) {
@@ -146,6 +146,8 @@ class YmlforYandexMarket {
 	}
 	$numFeed = '1'; // (string)
 	if (!defined('yfym_ALLNUMFEED')) {define('yfym_ALLNUMFEED', '5');}
+
+	$yfym_settings_arr = array();
 	$allNumFeed = (int)yfym_ALLNUMFEED;
 	for ($i = 1; $i<$allNumFeed+1; $i++) {
 		$name_dir = $upload_dir->basedir.'/yfym/feed'.$numFeed;
@@ -154,92 +156,36 @@ class YmlforYandexMarket {
 			error_log('ERROR: Ошибка создания папки '.$name_dir.'; Файл: yml-for-yandex-market.php; Строка: '.__LINE__, 0);
 			//return false;
 		 }
-		}
-		yfym_optionADD('yfym_status_cron', 'off', $numFeed);
-		yfym_optionADD('yfym_step_export', '500', $numFeed);
+		}		
 		yfym_optionADD('yfym_status_sborki', '-1', $numFeed); // статус сборки файла
-		yfym_optionADD('yfym_date_sborki', 'unknown', $numFeed); // дата последней сборки
-		yfym_optionADD('yfym_type_sborki', 'yml', $numFeed); // тип собираемого файла yml или xls
-		yfym_optionADD('yfym_file_url', '', $numFeed); // урл до файла
-		yfym_optionADD('yfym_file_file', '', $numFeed); // путь до файла
-		yfym_optionADD('yfym_file_ids_in_yml', '', $numFeed);
-		yfym_optionADD('yfym_ufup', '0', $numFeed);
-		yfym_optionADD('yfym_magazin_type', 'woocommerce', $numFeed); // тип плагина магазина 
-		yfym_optionADD('yfym_vendor', 'disabled', $numFeed); 
-		yfym_optionADD('yfym_whot_export', 'all', $numFeed); // что выгружать (все или там где галка)
-		yfym_optionADD('yfym_yml_rules', 'yandex_market', $numFeed);
-		yfym_optionADD('yfym_skip_missing_products', '0', $numFeed);
-		yfym_optionADD('yfym_date_save_set', 'unknown', $numFeed); // дата сохранения настроек		
-		yfym_optionADD('yfym_separator_type', 'type1', $numFeed); 
-		yfym_optionADD('yfym_behavior_onbackorder', 'false', $numFeed); 
-		yfym_optionADD('yfym_behavior_stip_symbol', 'default', $numFeed); 
-		yfym_optionADD('yfym_feed_assignment', '', $numFeed);
-		yfym_optionADD('yfym_file_extension', 'xml', $numFeed, 'no');
-
-		yfym_optionADD('yfym_shop_sku', 'disabled', $numFeed);
-		yfym_optionADD('yfym_count', 'disabled', $numFeed);
-		yfym_optionADD('yfym_auto_disabled', 'disabled', $numFeed);
-		yfym_optionADD('yfym_amount', 'disabled', $numFeed);
-		yfym_optionADD('yfym_manufacturer', 'disabled', $numFeed);	
-
-		$blog_title = get_bloginfo('name');
-		$blog_title = substr($blog_title, 0, 20);
-		yfym_optionADD('yfym_shop_name', $blog_title, $numFeed);
-		yfym_optionADD('yfym_company_name', $blog_title, $numFeed);
-		yfym_optionADD('yfym_main_product', 'other', $numFeed);		
-		yfym_optionADD('yfym_adult', 'no', $numFeed);
-		yfym_optionADD('yfym_wooc_currencies', '', $numFeed);
-		yfym_optionADD('yfym_desc', 'fullexcerpt', $numFeed);
-		yfym_optionADD('yfym_the_content', 'enabled', $numFeed);
-		yfym_optionADD('yfym_var_desc_priority', 'on', $numFeed);
-		yfym_optionADD('yfym_clear_get', 'no', $numFeed);
-		yfym_optionADD('yfym_price_from', 'no', $numFeed); // разрешить "цена от"
-		yfym_optionADD('yfym_oldprice', 'no', $numFeed);
-		yfym_optionADD('yfym_vat', 'disabled', $numFeed);
 		yfym_optionADD('yfym_params_arr', serialize(array()), $numFeed);
 		yfym_optionADD('yfym_add_in_name_arr', serialize(array()), $numFeed);
 		yfym_optionADD('yfym_no_group_id_arr', serialize(array()), $numFeed);
-/* ? */	yfym_optionADD('yfym_product_tag_arr', '', $numFeed); // id меток таксономии product_tag
-		yfym_optionADD('yfym_store', 'false', $numFeed);
-		yfym_optionADD('yfym_delivery', 'false', $numFeed);
-		yfym_optionADD('yfym_delivery_options', '0', $numFeed);
-		yfym_optionADD('yfym_delivery_cost', '0', $numFeed);
-		yfym_optionADD('yfym_delivery_days', '32', $numFeed);
-		yfym_optionADD('yfym_order_before', '', $numFeed);
-		yfym_optionADD('yfym_delivery_options2', '0', $numFeed);
-		yfym_optionADD('yfym_delivery_cost2', '0', $numFeed);
-		yfym_optionADD('yfym_delivery_days2', '32', $numFeed);
-		yfym_optionADD('yfym_order_before2', '', $numFeed);		
-		yfym_optionADD('yfym_sales_notes_cat', 'off', $numFeed);
-		yfym_optionADD('yfym_sales_notes', '', $numFeed);
-		yfym_optionADD('yfym_model', 'disabled', $numFeed); // атрибут model магазина
-		yfym_optionADD('yfym_pickup', 'true', $numFeed);
-		yfym_optionADD('yfym_barcode', 'disabled', $numFeed);
-		yfym_optionADD('yfym_barcode_post_meta', '', $numFeed);
-		yfym_optionADD('yfym_vendorcode', 'disabled', $numFeed);
-		yfym_optionADD('yfym_enable_auto_discount', '', $numFeed);
-		yfym_optionADD('yfym_expiry', 'off', $numFeed);
-		yfym_optionADD('yfym_downloadable', 'off', $numFeed);
-		yfym_optionADD('yfym_age', 'off', $numFeed);	
-		yfym_optionADD('yfym_country_of_origin', 'off', $numFeed);
-		yfym_optionADD('yfym_manufacturer_warranty', 'off', $numFeed);
-		yfym_optionADD('yfym_errors', '', $numFeed);
-		yfym_optionADD('yfym_enable_auto_discounts', '', $numFeed);
-		yfym_optionADD('yfym_skip_backorders_products', '0', $numFeed);
-		yfym_optionADD('yfym_no_default_png_products', '0', $numFeed);	
-		yfym_optionADD('yfym_skip_products_without_pic', '0', $numFeed);
-		$numFeed++;		
+
+		$yfym_registered_feeds_arr = array(
+			0 => array('last_id' => $numFeed),
+			1 => array('id' => $numFeed)
+		);
+		$yfym_settings_arr[$numFeed] = yfym_set_default_feed_settings_arr();
+		$numFeed++;
 	}
+
 	if (is_multisite()) {
-		add_blog_option(get_current_blog_id(), 'yfym_version', '3.5.5');
+		add_blog_option(get_current_blog_id(), 'yfym_version', '3.6.2');
 		add_blog_option(get_current_blog_id(), 'yfym_keeplogs', '0');
 		add_blog_option(get_current_blog_id(), 'yfym_disable_notices', '0');
 		add_blog_option(get_current_blog_id(), 'yfym_enable_five_min', '0');
+
+		add_blog_option(get_current_blog_id(), 'yfym_settings_arr', $yfym_settings_arr);
+		add_blog_option(get_current_blog_id(), 'yfym_registered_feeds_arr', $yfym_registered_feeds_arr);
 	} else {
-		add_option('yfym_version', '3.5.5');
+		add_option('yfym_version', '3.6.2');
 		add_option('yfym_keeplogs', '0');
 		add_option('yfym_disable_notices', '0');
 		add_option('yfym_enable_five_min', '0');		
+
+		add_option('yfym_settings_arr', $yfym_settings_arr);
+		add_option('yfym_registered_feeds_arr', $yfym_registered_feeds_arr);
 	}	
  }
  
@@ -267,86 +213,22 @@ class YmlforYandexMarket {
 		delete_blog_option(get_current_blog_id(), 'yfym_version');
 		delete_blog_option(get_current_blog_id(), 'yfym_keeplogs');
 		delete_blog_option(get_current_blog_id(), 'yfym_disable_notices');
-		delete_blog_option(get_current_blog_id(), 'yfym_enable_five_min');			
+		delete_blog_option(get_current_blog_id(), 'yfym_enable_five_min');	
+		delete_blog_option(get_current_blog_id(), 'yfym_settings_arr');		
 	} else {
 		delete_option('yfym_version');
 		delete_option('yfym_keeplogs');
 		delete_option('yfym_disable_notices');
 		delete_option('yfym_enable_five_min');
+		delete_option('yfym_settings_arr');
 	}
 	$numFeed = '1'; // (string)
 	$allNumFeed = (int)yfym_ALLNUMFEED;
-	for ($i = 1; $i<$allNumFeed+1; $i++) {		
-		yfym_optionDEL('yfym_shop_sku', $numFeed);
-		yfym_optionDEL('yfym_count', $numFeed);
-		yfym_optionADD('yfym_auto_disabled', $numFeed);
-		yfym_optionDEL('yfym_amount', $numFeed);
-		yfym_optionDEL('yfym_manufacturer', $numFeed);
-
-		yfym_optionDEL('yfym_shop_name', $numFeed);
-		yfym_optionDEL('yfym_company_name', $numFeed);
-		yfym_optionDEL('yfym_main_product', $numFeed);			
-		yfym_optionDEL('yfym_version', $numFeed);
-		yfym_optionDEL('yfym_status_cron', $numFeed);
-		yfym_optionDEL('yfym_whot_export', $numFeed);
-		yfym_optionDEL('yfym_yml_rules', $numFeed);
-		yfym_optionDEL('yfym_skip_missing_products', $numFeed);
-		yfym_optionDEL('yfym_date_save_set', $numFeed);
-		yfym_optionDEL('yfym_separator_type', $numFeed);
-		yfym_optionDEL('yfym_behavior_onbackorder', $numFeed);
-		yfym_optionDEL('yfym_behavior_stip_symbol', $numFeed); 
-		yfym_optionDEL('yfym_feed_assignment', $numFeed);
-		yfym_optionDEL('yfym_file_extension', $numFeed);
+	for ($i = 1; $i<$allNumFeed+1; $i++) {
 		yfym_optionDEL('yfym_status_sborki', $numFeed);
-		yfym_optionDEL('yfym_date_sborki', $numFeed);
-		yfym_optionDEL('yfym_type_sborki', $numFeed);
-		yfym_optionDEL('yfym_vendor', $numFeed);
-		yfym_optionDEL('yfym_model', $numFeed);
 		yfym_optionDEL('yfym_params_arr', $numFeed);
 		yfym_optionDEL('yfym_add_in_name_arr', $numFeed);
 		yfym_optionDEL('yfym_no_group_id_arr', $numFeed);
-/*?*/	yfym_optionDEL('yfym_product_tag_arr', $numFeed);
-		yfym_optionDEL('yfym_file_url', $numFeed);
-		yfym_optionDEL('yfym_file_file', $numFeed);
-		yfym_optionDEL('yfym_ufup', $numFeed);
-		yfym_optionDEL('yfym_magazin_type', $numFeed);
-		yfym_optionDEL('yfym_pickup', $numFeed);
-		yfym_optionDEL('yfym_store', $numFeed);
-		yfym_optionDEL('yfym_delivery', $numFeed);
-		yfym_optionDEL('yfym_delivery_options', $numFeed);		
-		yfym_optionDEL('yfym_delivery_cost', $numFeed);
-		yfym_optionDEL('yfym_delivery_days', $numFeed);
-		yfym_optionDEL('yfym_order_before', $numFeed);	
-		yfym_optionDEL('yfym_delivery_options2', $numFeed);
-		yfym_optionDEL('yfym_delivery_cost2', $numFeed);
-		yfym_optionDEL('yfym_delivery_days2', $numFeed);
-		yfym_optionDEL('yfym_order_before2', $numFeed);		
-		yfym_optionDEL('yfym_sales_notes_cat', $numFeed);
-		yfym_optionDEL('yfym_sales_notes', $numFeed);
-		yfym_optionDEL('yfym_price_from', $numFeed);	
-		yfym_optionDEL('yfym_desc', $numFeed);
-		yfym_optionDEL('yfym_the_content', $numFeed);
-		yfym_optionDEL('yfym_var_desc_priority', $numFeed);
-		yfym_optionDEL('yfym_clear_get', $numFeed);
-		yfym_optionDEL('yfym_barcode', $numFeed);
-		yfym_optionDEL('yfym_barcode_post_meta', $numFeed);
-		yfym_optionDEL('yfym_vendorcode', $numFeed);
-		yfym_optionDEL('yfym_enable_auto_discount', $numFeed);
-		yfym_optionDEL('yfym_expiry', $numFeed);
-		yfym_optionDEL('yfym_downloadable', $numFeed);
-		yfym_optionDEL('yfym_age', $numFeed);
-		yfym_optionDEL('yfym_country_of_origin', $numFeed);
-		yfym_optionDEL('yfym_manufacturer_warranty', $numFeed);
-		yfym_optionDEL('yfym_adult', $numFeed);
-		yfym_optionDEL('yfym_wooc_currencies', $numFeed);
-		yfym_optionDEL('yfym_oldprice', $numFeed);
-		yfym_optionDEL('yfym_vat', $numFeed);
-		yfym_optionDEL('yfym_step_export', $numFeed);
-		yfym_optionDEL('yfym_errors', $numFeed);
-		yfym_optionDEL('yfym_enable_auto_discounts', $numFeed);
-		yfym_optionDEL('yfym_skip_backorders_products', $numFeed);
-		yfym_optionDEL('yfym_no_default_png_products', $numFeed);
-		yfym_optionDEL('yfym_skip_products_without_pic', $numFeed);
 		$numFeed++;
 	}
  }
@@ -435,6 +317,7 @@ class YmlforYandexMarket {
 		$market_sku = sanitize_text_field($_POST['_yfym_market_sku']);
 		$tn_ved_code = sanitize_text_field($_POST['_yfym_tn_ved_code']);
 		$yfym_credit_template = sanitize_text_field($_POST['yfym_credit_template']);
+		$yfym_cargo_types = sanitize_text_field($_POST['_yfym_cargo_types']);
 		$yfym_supplier = sanitize_text_field($_POST['_yfym_supplier']);
 		$yfym_min_quantity = sanitize_text_field($_POST['_yfym_min_quantity']);
 		$yfym_step_quantity = sanitize_text_field($_POST['_yfym_step_quantity']);
@@ -469,6 +352,7 @@ class YmlforYandexMarket {
 		update_post_meta($post_id, '_yfym_market_sku', $market_sku);
 		update_post_meta($post_id, '_yfym_tn_ved_code', $tn_ved_code);
 		update_post_meta($post_id, 'yfym_credit_template', $yfym_credit_template);	
+		update_post_meta($post_id, '_yfym_cargo_types', $yfym_cargo_types);
 		update_post_meta($post_id, '_yfym_supplier', $yfym_supplier);
 		update_post_meta($post_id, '_yfym_recommend_stock_data_arr', $yfym_recommend_stock_data_arr);		
 		update_post_meta($post_id, '_yfym_min_quantity', $yfym_min_quantity);
@@ -493,13 +377,13 @@ class YmlforYandexMarket {
 		}
 		yfym_wf($result_yml, $post_id, $numFeed, $ids_in_yml); // записываем кэш-файл
 
-		$yfym_ufup = yfym_optionGET('yfym_ufup', $numFeed);
+		$yfym_ufup = yfym_optionGET('yfym_ufup', $numFeed, 'set_arr');
 		if ($yfym_ufup !== 'on') {$numFeed++; continue; /*return;*/}
 		$status_sborki = (int)yfym_optionGET('yfym_status_sborki', $numFeed);
 		if ($status_sborki > -1) {$numFeed++; continue; /*return;*/} // если идет сборка фида - пропуск
 		
-		$yfym_date_save_set = yfym_optionGET('yfym_date_save_set', $numFeed);
-		$yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed);
+		$yfym_date_save_set = yfym_optionGET('yfym_date_save_set', $numFeed, 'set_arr');
+		$yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed, 'set_arr');
 
 		if ($numFeed === '1') {$prefFeed = '';} else {$prefFeed = $numFeed;}
 		if (is_multisite()) {
@@ -531,7 +415,7 @@ class YmlforYandexMarket {
 			// настройки фида сохранялись позже, чем создан фид		
 			// нужно полностью пересобрать фид
 			yfym_error_log('FEED № '.$numFeed.'; NOTICE: Настройки фида сохранялись позже, чем создан фид; Файл: yml-for-yandex-market.php; Строка: '.__LINE__, 0);
-			$yfym_status_cron = yfym_optionGET('yfym_status_cron', $numFeed);
+			$yfym_status_cron = yfym_optionGET('yfym_status_cron', $numFeed, 'set_arr');
 			$recurrence = $yfym_status_cron;
 			wp_clear_scheduled_hook('yfym_cron_period', array($numFeed));
 			wp_schedule_event(time(), $recurrence, 'yfym_cron_period', array($numFeed));
@@ -836,6 +720,16 @@ class YmlforYandexMarket {
 					'description' => __('Optional element', 'yfym').' <strong>credit-template</strong> <a target="_blank" href="//yandex.ru/support/partnermarket/efficiency/credit.html">'. __('Read more on Yandex', 'yfym').'</a>',
 					'type' => 'text',
 				));	
+				woocommerce_wp_select(array(
+					'id' => '_yfym_cargo_types',
+					'label' => 'Cargo types',
+					'options' => array(
+						'default' => __('Default', 'yfym'),
+						'disabled' => __('Disabled', 'yfym'),
+						'yes' => 'CIS_REQUIRED',
+					),
+					'description' => __('Optional element', 'yfym').' <strong>cargo-types</strong> <a target="_blank" href="//yandex.ru/support/partnermarket-dsbs/orders/cis.html">'. __('Read more on Yandex', 'yfym').'</a>',
+				));
 				woocommerce_wp_text_input(array(
 					'id' => '_yfym_supplier',
 					'label' => 'ОГРН/ОГРНИП '. __('of a third-party seller', 'yfym'),
@@ -892,7 +786,7 @@ class YmlforYandexMarket {
  }
  public function yfym_do_this_event($numFeed = '1') {
 	yfym_error_log('FEED № '.$numFeed.'; Крон yfym_do_this_event включен. Делаем что-то каждый час; Файл: yml-for-yandex-market.php; Строка: '.__LINE__, 0);
-	$step_export = (int)yfym_optionGET('yfym_step_export', $numFeed);
+	$step_export = (int)yfym_optionGET('yfym_step_export', $numFeed, 'set_arr');
 	if ($step_export === 0) {$step_export = 500;}		
 	yfym_optionUPD('yfym_status_sborki', $step_export, $numFeed);
 
@@ -914,7 +808,7 @@ class YmlforYandexMarket {
 	// нужно ли запускать обновление фида при перезаписи файла
 	$allNumFeed = (int)yfym_ALLNUMFEED;
 
-	$yfym_disable_notices = yfym_optionGET('yfym_disable_notices');
+	$yfym_disable_notices = yfym_optionGET('yfym_disable_notices', 'set_arr');
 	if ($yfym_disable_notices !== 'on') {
 		for ($i = 1; $i<$allNumFeed+1; $i++) {
 			$status_sborki = yfym_optionGET('yfym_status_sborki', $numFeed);
@@ -926,7 +820,7 @@ class YmlforYandexMarket {
 			if ($status_sborki !== -1) {	
 				$count_posts = wp_count_posts('product');
 				$vsegotovarov = $count_posts->publish;
-				$step_export = (int)yfym_optionGET('yfym_step_export', $numFeed);
+				$step_export = (int)yfym_optionGET('yfym_step_export', $numFeed, 'set_arr');
 				if ($step_export === 0) {$step_export = 500;}
 				$vobrabotke = $status_sborki-$step_export;
 				if ($vsegotovarov > $vobrabotke) {
@@ -972,7 +866,7 @@ class YmlforYandexMarket {
 	}	
 		
 
-	if (yfym_optionGET('yfym_magazin_type', $numFeed) === 'woocommerce') { 
+	if (yfym_optionGET('yfym_magazin_type', $numFeed, 'set_arr') === 'woocommerce') { 
 		if (!class_exists('WooCommerce')) {
 			print '<div class="notice error is-dismissible"><p>'. __('WooCommerce is not active', 'yfym'). '!</p></div>';
 		}
@@ -1107,17 +1001,17 @@ class YmlforYandexMarket {
 		$allNumFeed = (int)yfym_ALLNUMFEED;
 		for ($i = 1; $i<$allNumFeed+1; $i++) {
 			$status_sborki = (int)yfym_optionGET('yfym_status_sborki', $numFeed);
-			$yfym_file_url = urldecode(yfym_optionGET('yfym_file_url', $numFeed));
-			$yfym_file_file = urldecode(yfym_optionGET('yfym_file_file', $numFeed));
-			$yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed);
-			$yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed);
-			$yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed);	
-			$yfym_skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed);
-			$yfym_status_cron = yfym_optionGET('yfym_status_cron', $numFeed);
-			$yfym_ufup = yfym_optionGET('yfym_ufup', $numFeed);	
+			$yfym_file_url = urldecode(yfym_optionGET('yfym_file_url', $numFeed, 'set_arr'));
+			$yfym_file_file = urldecode(yfym_optionGET('yfym_file_file', $numFeed, 'set_arr'));
+			$yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed, 'set_arr');
+			$yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed, 'set_arr');
+			$yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed, 'set_arr');	
+			$yfym_skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed, 'set_arr');
+			$yfym_status_cron = yfym_optionGET('yfym_status_cron', $numFeed, 'set_arr');
+			$yfym_ufup = yfym_optionGET('yfym_ufup', $numFeed, 'set_arr');	
 			$yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed);
-			$yfym_main_product = yfym_optionGET('yfym_main_product', $numFeed);
-			$yfym_errors = yfym_optionGET('yfym_errors', $numFeed);
+			$yfym_main_product = yfym_optionGET('yfym_main_product', $numFeed, 'set_arr');
+			$yfym_errors = yfym_optionGET('yfym_errors', $numFeed, 'set_arr');
 
 			$mail_content .= PHP_EOL."ФИД №: ".$i. PHP_EOL . PHP_EOL;
 			$mail_content .= "status_sborki: ".$status_sborki. PHP_EOL;
@@ -1151,12 +1045,12 @@ class YmlforYandexMarket {
 	// файл уже собран. На всякий случай отключим крон сборки
 	if ($status_sborki == -1 ) {wp_clear_scheduled_hook('yfym_cron_sborki', array($numFeed)); return;}
 		  
-	$yfym_date_save_set = yfym_optionGET('yfym_date_save_set', $numFeed);
+	$yfym_date_save_set = yfym_optionGET('yfym_date_save_set', $numFeed, 'set_arr');
 	if ($yfym_date_save_set == '') {
 		$unixtime = current_time('timestamp', 1); // 1335808087 - временная зона GMT(Unix формат)
-		yfym_optionUPD('yfym_date_save_set', $unixtime, $numFeed);
+		yfym_optionUPD('yfym_date_save_set', $unixtime, $numFeed, 'yes', 'set_arr');
 	}
-	$yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed);
+	$yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed, 'set_arr');
 	  
 	if ($numFeed === '1') {$prefFeed = '';} else {$prefFeed = $numFeed;}	  
 	if (is_multisite()) {
@@ -1191,7 +1085,7 @@ class YmlforYandexMarket {
 	}
 	// далее исходим из того, что файла с фидом нет, либо нужна полная сборка
 	  
-	$step_export = (int)yfym_optionGET('yfym_step_export', $numFeed);
+	$step_export = (int)yfym_optionGET('yfym_step_export', $numFeed, 'set_arr');
 	if ($step_export == 0) {$step_export = 500;}
 	  
 	if ($status_sborki == $step_export) { // начинаем сборку файла
@@ -1210,7 +1104,7 @@ class YmlforYandexMarket {
 	if ($status_sborki > 1) {
 		$result_yml	= '';
 		$offset = $status_sborki-$step_export;
-		$whot_export = yfym_optionGET('yfym_whot_export', $numFeed);
+		$whot_export = yfym_optionGET('yfym_whot_export', $numFeed, 'set_arr');
 		if ($whot_export === 'vygruzhat') {
 			$args = array(
 				'post_type' => 'product',

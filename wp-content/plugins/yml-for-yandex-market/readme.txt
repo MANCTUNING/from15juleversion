@@ -4,7 +4,7 @@ Donate link: https://sobe.ru/na/plugin_yml_for_yandex_market
 Tags: yml, yandex, market, export, woocommerce
 Requires at least: 4.4.2
 Tested up to: 5.7.2
-Stable tag: 3.5.5
+Stable tag: 3.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,7 @@ Creates a YML-feed to upload to Yandex Market and not only. In addition to Yande
 * AliExpress.com*
 * CDEK (partial support)
 * OZON (partial support)
+* EBay (partial support)
 and not only...
 
 The plugin Woocommerce is required!
@@ -75,9 +76,17 @@ After 1-7 minutes (depending on the number of products), the feed will be genera
 
 == Changelog ==
 
-= 3.5.5 =
+= 3.6.2 =
 * Fix bugs.
-* Added support for premium_price (OZON)
+* Added support for EBay.
+
+= 3.6.1 =
+* Fix bugs.
+* Added support for cargo-types (only DBS model).
+
+= 3.6.0 =
+Important! The data storage structure of the plugin has changed. After the update, it is recommended to re-save the plugin settings for each feed!
+* Fix bugs.
 
 = 3.5.4 =
 * Fix bugs.
@@ -545,6 +554,6 @@ What's new:
 
 == Upgrade Notice ==
 
-= 3.5.5 =
+= 3.6.2 =
 * Fix bugs.
-* Added support for premium_price (OZON)
+* Added support for EBay.

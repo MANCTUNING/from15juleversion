@@ -20,113 +20,119 @@ function yfym_export_page() {
 	$numFeed = sanitize_text_field($_POST['yfym_num_feed_for_save']);
 	
 	$unixtime = current_time('timestamp', 1); // 1335808087 - временная зона GMT (Unix формат)
-	yfym_optionUPD('yfym_date_save_set', $unixtime, $numFeed);
+	yfym_optionUPD('yfym_date_save_set', $unixtime, $numFeed, 'yes', 'set_arr');
 
 	if (isset($_POST['yfym_skip_missing_products'])) {
-		yfym_optionUPD('yfym_skip_missing_products', sanitize_text_field($_POST['yfym_skip_missing_products']), $numFeed);
+		yfym_optionUPD('yfym_skip_missing_products', sanitize_text_field($_POST['yfym_skip_missing_products']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_skip_missing_products', '0', $numFeed);
+		yfym_optionUPD('yfym_skip_missing_products', '0', $numFeed, 'yes', 'set_arr');
 	}
 	if (isset($_POST['yfym_skip_backorders_products'])) {
-		yfym_optionUPD('yfym_skip_backorders_products', sanitize_text_field($_POST['yfym_skip_backorders_products']), $numFeed);
+		yfym_optionUPD('yfym_skip_backorders_products', sanitize_text_field($_POST['yfym_skip_backorders_products']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_skip_backorders_products', '0', $numFeed);
+		yfym_optionUPD('yfym_skip_backorders_products', '0', $numFeed, 'yes', 'set_arr');
 	}
 	if (isset($_POST['yfym_no_default_png_products'])) {
-		yfym_optionUPD('yfym_no_default_png_products', sanitize_text_field($_POST['yfym_no_default_png_products']), $numFeed);
+		yfym_optionUPD('yfym_no_default_png_products', sanitize_text_field($_POST['yfym_no_default_png_products']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_no_default_png_products', '0', $numFeed);
+		yfym_optionUPD('yfym_no_default_png_products', '0', $numFeed, 'yes', 'set_arr');
 	}
 	if (isset($_POST['yfym_skip_products_without_pic'])) {
-		yfym_optionUPD('yfym_skip_products_without_pic', sanitize_text_field($_POST['yfym_skip_products_without_pic']), $numFeed);
+		yfym_optionUPD('yfym_skip_products_without_pic', sanitize_text_field($_POST['yfym_skip_products_without_pic']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_skip_products_without_pic', '0', $numFeed);
+		yfym_optionUPD('yfym_skip_products_without_pic', '0', $numFeed, 'yes', 'set_arr');
 	}
 	if (isset($_POST['yfym_ufup'])) {
-		yfym_optionUPD('yfym_ufup', sanitize_text_field($_POST['yfym_ufup']), $numFeed);
+		yfym_optionUPD('yfym_ufup', sanitize_text_field($_POST['yfym_ufup']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_ufup', '0', $numFeed);
+		yfym_optionUPD('yfym_ufup', '0', $numFeed, 'yes', 'set_arr');
 	} 
-	yfym_optionUPD('yfym_desc', sanitize_text_field($_POST['yfym_desc']), $numFeed);
-	yfym_optionUPD('yfym_the_content', sanitize_text_field($_POST['yfym_the_content']), $numFeed);
+	yfym_optionUPD('yfym_desc', sanitize_text_field($_POST['yfym_desc']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_the_content', sanitize_text_field($_POST['yfym_the_content']), $numFeed, 'yes', 'set_arr');
 	if (isset($_POST['yfym_var_desc_priority'])) {
-		yfym_optionUPD('yfym_var_desc_priority', sanitize_text_field($_POST['yfym_var_desc_priority']), $numFeed);
+		yfym_optionUPD('yfym_var_desc_priority', sanitize_text_field($_POST['yfym_var_desc_priority']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_var_desc_priority', '0', $numFeed);
+		yfym_optionUPD('yfym_var_desc_priority', '0', $numFeed, 'yes', 'set_arr');
 	}	
-	yfym_optionUPD('yfym_clear_get', sanitize_text_field($_POST['yfym_clear_get']), $numFeed);
-	yfym_optionUPD('yfym_barcode', sanitize_text_field($_POST['yfym_barcode']), $numFeed);
-	yfym_optionUPD('yfym_barcode_post_meta', sanitize_text_field($_POST['yfym_barcode_post_meta']), $numFeed);
+	yfym_optionUPD('yfym_clear_get', sanitize_text_field($_POST['yfym_clear_get']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_barcode', sanitize_text_field($_POST['yfym_barcode']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_barcode_post_meta', sanitize_text_field($_POST['yfym_barcode_post_meta']), $numFeed, 'yes', 'set_arr');
 
-	yfym_optionUPD('yfym_vendorcode', sanitize_text_field($_POST['yfym_vendorcode']), $numFeed);
+	yfym_optionUPD('yfym_vendorcode', sanitize_text_field($_POST['yfym_vendorcode']), $numFeed, 'yes', 'set_arr');
 
 	if (isset($_POST['yfym_enable_auto_discounts'])) {
-		yfym_optionUPD('yfym_enable_auto_discounts', sanitize_text_field($_POST['yfym_enable_auto_discounts']), $numFeed);
+		yfym_optionUPD('yfym_enable_auto_discounts', sanitize_text_field($_POST['yfym_enable_auto_discounts']), $numFeed, 'yes', 'set_arr');
 		} else {
-		yfym_optionUPD('yfym_enable_auto_discounts', '0', $numFeed);
+		yfym_optionUPD('yfym_enable_auto_discounts', '0', $numFeed, 'yes', 'set_arr');
 	}
-	yfym_optionUPD('yfym_expiry', sanitize_text_field($_POST['yfym_expiry']), $numFeed);
-	yfym_optionUPD('yfym_downloadable', sanitize_text_field($_POST['yfym_downloadable']), $numFeed);
-	yfym_optionUPD('yfym_age', sanitize_text_field($_POST['yfym_age']), $numFeed);
-	yfym_optionUPD('yfym_country_of_origin', sanitize_text_field($_POST['yfym_country_of_origin']), $numFeed);
-	yfym_optionUPD('yfym_source_id', sanitize_text_field($_POST['yfym_source_id']), $numFeed);
-	yfym_optionUPD('yfym_source_id_post_meta', sanitize_text_field($_POST['yfym_source_id_post_meta']), $numFeed);
-	yfym_optionUPD('yfym_manufacturer_warranty', sanitize_text_field($_POST['yfym_manufacturer_warranty']), $numFeed);
+	yfym_optionUPD('yfym_expiry', sanitize_text_field($_POST['yfym_expiry']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_downloadable', sanitize_text_field($_POST['yfym_downloadable']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_age', sanitize_text_field($_POST['yfym_age']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_country_of_origin', sanitize_text_field($_POST['yfym_country_of_origin']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_source_id', sanitize_text_field($_POST['yfym_source_id']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_source_id_post_meta', sanitize_text_field($_POST['yfym_source_id_post_meta']), $numFeed, 'yes', 'set_arr');
+	if (isset($_POST['yfym_ebay_stock'])) {
+		yfym_optionUPD('yfym_ebay_stock', sanitize_text_field($_POST['yfym_ebay_stock']), $numFeed, 'yes', 'set_arr');
+	} else {
+		yfym_optionUPD('yfym_ebay_stock', '0', $numFeed, 'yes', 'set_arr');
+	} 
+	yfym_optionUPD('yfym_manufacturer_warranty', sanitize_text_field($_POST['yfym_manufacturer_warranty']), $numFeed, 'yes', 'set_arr');
   
-	yfym_optionUPD('yfym_whot_export', sanitize_text_field($_POST['yfym_whot_export']), $numFeed);
-	yfym_optionUPD('yfym_feed_assignment', sanitize_text_field($_POST['yfym_feed_assignment']), $numFeed);
-	yfym_optionUPD('yfym_file_extension', sanitize_text_field($_POST['yfym_file_extension']), $numFeed);
-	yfym_optionUPD('yfym_yml_rules', sanitize_text_field($_POST['yfym_yml_rules']), $numFeed);
-	yfym_optionUPD('yfym_pickup', sanitize_text_field($_POST['yfym_pickup']), $numFeed);
+	yfym_optionUPD('yfym_whot_export', sanitize_text_field($_POST['yfym_whot_export']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_feed_assignment', sanitize_text_field($_POST['yfym_feed_assignment']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_file_extension', sanitize_text_field($_POST['yfym_file_extension']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_yml_rules', sanitize_text_field($_POST['yfym_yml_rules']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_pickup', sanitize_text_field($_POST['yfym_pickup']), $numFeed, 'yes', 'set_arr');
 	
-	yfym_optionUPD('yfym_sales_notes_cat', sanitize_text_field($_POST['yfym_sales_notes_cat']), $numFeed);
-	yfym_optionUPD('yfym_sales_notes', sanitize_text_field($_POST['yfym_sales_notes']), $numFeed);
-	yfym_optionUPD('yfym_delivery', sanitize_text_field($_POST['yfym_delivery']), $numFeed);
-	yfym_optionUPD('yfym_store', sanitize_text_field($_POST['yfym_store']), $numFeed);
+	yfym_optionUPD('yfym_sales_notes_cat', sanitize_text_field($_POST['yfym_sales_notes_cat']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_sales_notes', sanitize_text_field($_POST['yfym_sales_notes']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_delivery', sanitize_text_field($_POST['yfym_delivery']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_store', sanitize_text_field($_POST['yfym_store']), $numFeed, 'yes', 'set_arr');
 
-	yfym_optionUPD('yfym_order_before', sanitize_text_field($_POST['yfym_order_before']), $numFeed);	
+	yfym_optionUPD('yfym_order_before', sanitize_text_field($_POST['yfym_order_before']), $numFeed, 'yes', 'set_arr');	
 	$yfym_delivery_cost = (int)sanitize_text_field($_POST['yfym_delivery_cost']);
 	if ($yfym_delivery_cost >= 0 ) {
-		yfym_optionUPD('yfym_delivery_cost', $yfym_delivery_cost, $numFeed); 
+		yfym_optionUPD('yfym_delivery_cost', $yfym_delivery_cost, $numFeed, 'yes', 'set_arr'); 
 	}	
-	yfym_optionUPD('yfym_delivery_days', sanitize_text_field($_POST['yfym_delivery_days']), $numFeed);
+	yfym_optionUPD('yfym_delivery_days', sanitize_text_field($_POST['yfym_delivery_days']), $numFeed, 'yes', 'set_arr');
 	if (isset($_POST['yfym_delivery_options'])) {
-		yfym_optionUPD('yfym_delivery_options', sanitize_text_field($_POST['yfym_delivery_options']), $numFeed);
+		yfym_optionUPD('yfym_delivery_options', sanitize_text_field($_POST['yfym_delivery_options']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_delivery_options', '0', $numFeed);
+		yfym_optionUPD('yfym_delivery_options', '0', $numFeed, 'yes', 'set_arr');
 	}
 
-	yfym_optionUPD('yfym_order_before2', sanitize_text_field($_POST['yfym_order_before2']), $numFeed);	
+	yfym_optionUPD('yfym_order_before2', sanitize_text_field($_POST['yfym_order_before2']), $numFeed, 'yes', 'set_arr');	
 	$yfym_delivery_cost2 = (int)sanitize_text_field($_POST['yfym_delivery_cost2']);
 	if ($yfym_delivery_cost2 >= 0 ) {
-		yfym_optionUPD('yfym_delivery_cost2', $yfym_delivery_cost2, $numFeed); 
+		yfym_optionUPD('yfym_delivery_cost2', $yfym_delivery_cost2, $numFeed, 'yes', 'set_arr'); 
 	}	
-	yfym_optionUPD('yfym_delivery_days2', sanitize_text_field($_POST['yfym_delivery_days2']), $numFeed);
+	yfym_optionUPD('yfym_delivery_days2', sanitize_text_field($_POST['yfym_delivery_days2']), $numFeed, 'yes', 'set_arr');
 	if (isset($_POST['yfym_delivery_options2'])) {
-		yfym_optionUPD('yfym_delivery_options2', sanitize_text_field($_POST['yfym_delivery_options2']), $numFeed);
+		yfym_optionUPD('yfym_delivery_options2', sanitize_text_field($_POST['yfym_delivery_options2']), $numFeed, 'yes', 'set_arr');
 	} else {
-		yfym_optionUPD('yfym_delivery_options2', '0', $numFeed);
+		yfym_optionUPD('yfym_delivery_options2', '0', $numFeed, 'yes', 'set_arr');
 	}	
 	
-	yfym_optionUPD('yfym_shop_name', $_POST['yfym_shop_name'], $numFeed);
-	yfym_optionUPD('yfym_company_name', $_POST['yfym_company_name'], $numFeed);
-	yfym_optionUPD('yfym_shop_sku', $_POST['yfym_shop_sku'], $numFeed);
-	yfym_optionUPD('yfym_count', sanitize_text_field($_POST['yfym_count']), $numFeed);
-	yfym_optionUPD('yfym_auto_disabled', sanitize_text_field($_POST['yfym_auto_disabled']), $numFeed);
-	yfym_optionUPD('yfym_market_sku_status', sanitize_text_field($_POST['yfym_market_sku_status']), $numFeed);
-	yfym_optionUPD('yfym_amount', sanitize_text_field($_POST['yfym_amount']), $numFeed);
-	yfym_optionUPD('yfym_manufacturer', $_POST['yfym_manufacturer'], $numFeed);
+	yfym_optionUPD('yfym_shop_name', $_POST['yfym_shop_name'], $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_company_name', $_POST['yfym_company_name'], $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_currencies', $_POST['yfym_currencies'], $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_shop_sku', $_POST['yfym_shop_sku'], $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_count', sanitize_text_field($_POST['yfym_count']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_auto_disabled', sanitize_text_field($_POST['yfym_auto_disabled']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_market_sku_status', sanitize_text_field($_POST['yfym_market_sku_status']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_amount', sanitize_text_field($_POST['yfym_amount']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_manufacturer', $_POST['yfym_manufacturer'], $numFeed, 'yes', 'set_arr');
 
-	yfym_optionUPD('yfym_main_product', sanitize_text_field($_POST['yfym_main_product']), $numFeed);
-	yfym_optionUPD('yfym_adult', sanitize_text_field($_POST['yfym_adult']), $numFeed);
+	yfym_optionUPD('yfym_main_product', sanitize_text_field($_POST['yfym_main_product']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_adult', sanitize_text_field($_POST['yfym_adult']), $numFeed, 'yes', 'set_arr');
 	if (isset($_POST['yfym_wooc_currencies'])) {
-		yfym_optionUPD('yfym_wooc_currencies', sanitize_text_field($_POST['yfym_wooc_currencies']), $numFeed);
+		yfym_optionUPD('yfym_wooc_currencies', sanitize_text_field($_POST['yfym_wooc_currencies']), $numFeed, 'yes', 'set_arr');
 	}
-	yfym_optionUPD('yfym_vendor', sanitize_text_field($_POST['yfym_vendor']), $numFeed);
-	yfym_optionUPD('yfym_model', sanitize_text_field($_POST['yfym_model']), $numFeed);
-	yfym_optionUPD('yfym_separator_type', sanitize_text_field($_POST['yfym_separator_type']), $numFeed);
-	yfym_optionUPD('yfym_behavior_onbackorder', sanitize_text_field($_POST['yfym_behavior_onbackorder']), $numFeed);
-	yfym_optionUPD('yfym_behavior_stip_symbol', sanitize_text_field($_POST['yfym_behavior_stip_symbol']), $numFeed);
+	yfym_optionUPD('yfym_vendor', sanitize_text_field($_POST['yfym_vendor']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_model', sanitize_text_field($_POST['yfym_model']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_separator_type', sanitize_text_field($_POST['yfym_separator_type']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_behavior_onbackorder', sanitize_text_field($_POST['yfym_behavior_onbackorder']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_behavior_stip_symbol', sanitize_text_field($_POST['yfym_behavior_stip_symbol']), $numFeed, 'yes', 'set_arr');
 
 	if (isset($_POST['yfym_params_arr'])) {
 		yfym_optionUPD('yfym_params_arr', serialize($_POST['yfym_params_arr']), $numFeed);
@@ -137,19 +143,19 @@ function yfym_export_page() {
 	if (isset($_POST['yfym_no_group_id_arr'])) {
 		yfym_optionUPD('yfym_no_group_id_arr', serialize($_POST['yfym_no_group_id_arr']), $numFeed);
 	} else {yfym_optionUPD('yfym_no_group_id_arr', serialize(array()), $numFeed);}
-	yfym_optionUPD('yfym_price_from', sanitize_text_field($_POST['yfym_price_from']), $numFeed);
-	yfym_optionUPD('yfym_oldprice', sanitize_text_field($_POST['yfym_oldprice']), $numFeed);
-	yfym_optionUPD('yfym_vat', sanitize_text_field($_POST['yfym_vat']), $numFeed);
-	yfym_optionUPD('yfym_step_export', sanitize_text_field($_POST['yfym_step_export']), $numFeed);
+	yfym_optionUPD('yfym_price_from', sanitize_text_field($_POST['yfym_price_from']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_oldprice', sanitize_text_field($_POST['yfym_oldprice']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_vat', sanitize_text_field($_POST['yfym_vat']), $numFeed, 'yes', 'set_arr');
+	yfym_optionUPD('yfym_step_export', sanitize_text_field($_POST['yfym_step_export']), $numFeed, 'yes', 'set_arr');
 	
 	$arr_maybe = array("off", "five_min", "hourly", "six_hours", "twicedaily", "daily");
 	$yfym_run_cron = sanitize_text_field($_POST['yfym_run_cron']);
 	if (in_array($yfym_run_cron, $arr_maybe)) {		
-		yfym_optionUPD('yfym_status_cron', $yfym_run_cron, $numFeed);
+		yfym_optionUPD('yfym_status_cron', $yfym_run_cron, $numFeed, 'yes', 'set_arr');
 		if ($yfym_run_cron === 'off') {
 			// отключаем крон
 			wp_clear_scheduled_hook('yfym_cron_period', array($numFeed));
-			yfym_optionUPD('yfym_status_cron', 'off', $numFeed);
+			yfym_optionUPD('yfym_status_cron', 'off', $numFeed, 'yes', 'set_arr');
 			
 			wp_clear_scheduled_hook('yfym_cron_sborki', array($numFeed));
 			yfym_optionUPD('yfym_status_sborki', '-1', $numFeed);
@@ -165,70 +171,72 @@ function yfym_export_page() {
   }
  } 
 
- $yfym_status_cron = yfym_optionGET('yfym_status_cron', $numFeed);
- $yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed); 
- $yfym_feed_assignment = yfym_optionGET('yfym_feed_assignment', $numFeed);
- $yfym_file_extension = yfym_optionGET('yfym_file_extension', $numFeed);
- $yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed);
- $yfym_desc = yfym_optionGET('yfym_desc', $numFeed);
- $yfym_the_content = yfym_optionGET('yfym_the_content', $numFeed);
- $yfym_var_desc_priority = yfym_optionGET('yfym_var_desc_priority', $numFeed);
- $yfym_clear_get = yfym_optionGET('yfym_clear_get', $numFeed);
- $yfym_shop_name = stripslashes(htmlspecialchars(yfym_optionGET('yfym_shop_name', $numFeed)));
- $yfym_company_name = stripslashes(htmlspecialchars(yfym_optionGET('yfym_company_name', $numFeed)));
- $yfym_shop_sku = yfym_optionGET('yfym_shop_sku', $numFeed);
- $yfym_count = yfym_optionGET('yfym_count', $numFeed);
- $yfym_auto_disabled = yfym_optionGET('yfym_auto_disabled', $numFeed);
- $yfym_market_sku_status = yfym_optionGET('yfym_market_sku_status', $numFeed);
- $yfym_amount = yfym_optionGET('yfym_amount', $numFeed);
- $yfym_main_product = yfym_optionGET('yfym_main_product', $numFeed);  
- $yfym_adult = yfym_optionGET('yfym_adult', $numFeed); 	
- $yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed);
- $yfym_step_export = yfym_optionGET('yfym_step_export', $numFeed); 
+ $yfym_status_cron = yfym_optionGET('yfym_status_cron', $numFeed, 'set_arr');
+ $yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed, 'set_arr'); 
+ $yfym_feed_assignment = yfym_optionGET('yfym_feed_assignment', $numFeed, 'set_arr');
+ $yfym_file_extension = yfym_optionGET('yfym_file_extension', $numFeed, 'set_arr');
+ $yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed, 'set_arr');
+ $yfym_desc = yfym_optionGET('yfym_desc', $numFeed, 'set_arr');
+ $yfym_the_content = yfym_optionGET('yfym_the_content', $numFeed, 'set_arr');
+ $yfym_var_desc_priority = yfym_optionGET('yfym_var_desc_priority', $numFeed, 'set_arr');
+ $yfym_clear_get = yfym_optionGET('yfym_clear_get', $numFeed, 'set_arr');
+ $yfym_shop_name = stripslashes(htmlspecialchars(yfym_optionGET('yfym_shop_name', $numFeed, 'set_arr')));
+ $yfym_company_name = stripslashes(htmlspecialchars(yfym_optionGET('yfym_company_name', $numFeed, 'set_arr')));
+ $yfym_currencies = yfym_optionGET('yfym_currencies', $numFeed, 'set_arr');
+ $yfym_shop_sku = yfym_optionGET('yfym_shop_sku', $numFeed, 'set_arr');
+ $yfym_count = yfym_optionGET('yfym_count', $numFeed, 'set_arr');
+ $yfym_auto_disabled = yfym_optionGET('yfym_auto_disabled', $numFeed, 'set_arr');
+ $yfym_market_sku_status = yfym_optionGET('yfym_market_sku_status', $numFeed, 'set_arr');
+ $yfym_amount = yfym_optionGET('yfym_amount', $numFeed, 'set_arr');
+ $yfym_main_product = yfym_optionGET('yfym_main_product', $numFeed, 'set_arr');  
+ $yfym_adult = yfym_optionGET('yfym_adult', $numFeed, 'set_arr'); 	
+ $yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed, 'set_arr');
+ $yfym_step_export = yfym_optionGET('yfym_step_export', $numFeed, 'set_arr'); 
  $yfym_no_group_id_arr = unserialize(yfym_optionGET('yfym_no_group_id_arr', $numFeed)); 
- $yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed);
- $yfym_skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed); 
- $yfym_no_default_png_products = yfym_optionGET('yfym_no_default_png_products', $numFeed);
- $yfym_skip_products_without_pic = yfym_optionGET('yfym_skip_products_without_pic', $numFeed); 
- $yfym_ufup = yfym_optionGET('yfym_ufup', $numFeed);
- $yfym_delivery = yfym_optionGET('yfym_delivery', $numFeed); 
- $yfym_delivery_options = yfym_optionGET('yfym_delivery_options', $numFeed);
- $yfym_delivery_cost = yfym_optionGET('yfym_delivery_cost', $numFeed); 
- $yfym_delivery_days = yfym_optionGET('yfym_delivery_days', $numFeed); 
- $yfym_order_before = yfym_optionGET('yfym_order_before', $numFeed);
- $yfym_delivery_options2 = yfym_optionGET('yfym_delivery_options2', $numFeed);
- $yfym_delivery_cost2 = yfym_optionGET('yfym_delivery_cost2', $numFeed); 
- $yfym_delivery_days2 = yfym_optionGET('yfym_delivery_days2', $numFeed);  
- $yfym_order_before2 = yfym_optionGET('yfym_order_before2', $numFeed);
- $yfym_pickup = yfym_optionGET('yfym_pickup', $numFeed); 
- $yfym_price_from = yfym_optionGET('yfym_price_from', $numFeed); 
- $yfym_oldprice = yfym_optionGET('yfym_oldprice', $numFeed); 
- $yfym_vat = yfym_optionGET('yfym_vat', $numFeed);
- $yfym_barcode = yfym_optionGET('yfym_barcode', $numFeed);
- $yfym_barcode_post_meta = yfym_optionGET('yfym_barcode_post_meta', $numFeed);
- $yfym_vendorcode = yfym_optionGET('yfym_vendorcode', $numFeed);
+ $yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed, 'set_arr');
+ $yfym_skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed, 'set_arr'); 
+ $yfym_no_default_png_products = yfym_optionGET('yfym_no_default_png_products', $numFeed, 'set_arr');
+ $yfym_skip_products_without_pic = yfym_optionGET('yfym_skip_products_without_pic', $numFeed, 'set_arr'); 
+ $yfym_ufup = yfym_optionGET('yfym_ufup', $numFeed, 'set_arr');
+ $yfym_delivery = yfym_optionGET('yfym_delivery', $numFeed, 'set_arr'); 
+ $yfym_delivery_options = yfym_optionGET('yfym_delivery_options', $numFeed, 'set_arr');
+ $yfym_delivery_cost = yfym_optionGET('yfym_delivery_cost', $numFeed, 'set_arr'); 
+ $yfym_delivery_days = yfym_optionGET('yfym_delivery_days', $numFeed, 'set_arr'); 
+ $yfym_order_before = yfym_optionGET('yfym_order_before', $numFeed, 'set_arr');
+ $yfym_delivery_options2 = yfym_optionGET('yfym_delivery_options2', $numFeed, 'set_arr');
+ $yfym_delivery_cost2 = yfym_optionGET('yfym_delivery_cost2', $numFeed, 'set_arr'); 
+ $yfym_delivery_days2 = yfym_optionGET('yfym_delivery_days2', $numFeed, 'set_arr');  
+ $yfym_order_before2 = yfym_optionGET('yfym_order_before2', $numFeed, 'set_arr');
+ $yfym_pickup = yfym_optionGET('yfym_pickup', $numFeed, 'set_arr'); 
+ $yfym_price_from = yfym_optionGET('yfym_price_from', $numFeed, 'set_arr'); 
+ $yfym_oldprice = yfym_optionGET('yfym_oldprice', $numFeed, 'set_arr'); 
+ $yfym_vat = yfym_optionGET('yfym_vat', $numFeed, 'set_arr');
+ $yfym_barcode = yfym_optionGET('yfym_barcode', $numFeed, 'set_arr');
+ $yfym_barcode_post_meta = yfym_optionGET('yfym_barcode_post_meta', $numFeed, 'set_arr');
+ $yfym_vendorcode = yfym_optionGET('yfym_vendorcode', $numFeed, 'set_arr');
 
- $yfym_enable_auto_discounts = yfym_optionGET('yfym_enable_auto_discounts', $numFeed); 
- $expiry = yfym_optionGET('yfym_expiry', $numFeed); 
- $downloadable = yfym_optionGET('yfym_downloadable', $numFeed);
- $age = yfym_optionGET('yfym_age', $numFeed);
- $model = yfym_optionGET('yfym_model', $numFeed); 
- $yfym_separator_type = yfym_optionGET('yfym_separator_type', $numFeed); 
- $yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed); 
- $yfym_behavior_stip_symbol = yfym_optionGET('yfym_behavior_stip_symbol', $numFeed); 
- $vendor = yfym_optionGET('yfym_vendor', $numFeed); 
- $country_of_origin = yfym_optionGET('yfym_country_of_origin', $numFeed);
- $yfym_source_id = yfym_optionGET('yfym_source_id', $numFeed);
- $yfym_source_id_post_meta = yfym_optionGET('yfym_source_id_post_meta', $numFeed);
- $yfym_manufacturer = yfym_optionGET('yfym_manufacturer', $numFeed); 
- $manufacturer_warranty = yfym_optionGET('yfym_manufacturer_warranty', $numFeed); 
- $sales_notes_cat = yfym_optionGET('yfym_sales_notes_cat', $numFeed);
- $sales_notes = htmlspecialchars(yfym_optionGET('yfym_sales_notes', $numFeed));
+ $yfym_enable_auto_discounts = yfym_optionGET('yfym_enable_auto_discounts', $numFeed, 'set_arr'); 
+ $expiry = yfym_optionGET('yfym_expiry', $numFeed, 'set_arr'); 
+ $downloadable = yfym_optionGET('yfym_downloadable', $numFeed, 'set_arr');
+ $age = yfym_optionGET('yfym_age', $numFeed, 'set_arr');
+ $model = yfym_optionGET('yfym_model', $numFeed, 'set_arr'); 
+ $yfym_separator_type = yfym_optionGET('yfym_separator_type', $numFeed, 'set_arr'); 
+ $yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed, 'set_arr'); 
+ $yfym_behavior_stip_symbol = yfym_optionGET('yfym_behavior_stip_symbol', $numFeed, 'set_arr'); 
+ $vendor = yfym_optionGET('yfym_vendor', $numFeed, 'set_arr'); 
+ $country_of_origin = yfym_optionGET('yfym_country_of_origin', $numFeed, 'set_arr');
+ $yfym_source_id = yfym_optionGET('yfym_source_id', $numFeed, 'set_arr');
+ $yfym_source_id_post_meta = yfym_optionGET('yfym_source_id_post_meta', $numFeed, 'set_arr');
+ $yfym_ebay_stock = yfym_optionGET('yfym_ebay_stock', $numFeed, 'set_arr'); 
+ $yfym_manufacturer = yfym_optionGET('yfym_manufacturer', $numFeed, 'set_arr'); 
+ $manufacturer_warranty = yfym_optionGET('yfym_manufacturer_warranty', $numFeed, 'set_arr'); 
+ $sales_notes_cat = yfym_optionGET('yfym_sales_notes_cat', $numFeed, 'set_arr');
+ $sales_notes = htmlspecialchars(yfym_optionGET('yfym_sales_notes', $numFeed, 'set_arr'));
  $params_arr = unserialize(yfym_optionGET('yfym_params_arr', $numFeed));
  $add_in_name_arr = unserialize(yfym_optionGET('yfym_add_in_name_arr', $numFeed)); 
- $yfym_store = yfym_optionGET('yfym_store', $numFeed);
- $yfym_file_url = urldecode(yfym_optionGET('yfym_file_url', $numFeed));
- $yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed);
+ $yfym_store = yfym_optionGET('yfym_store', $numFeed, 'set_arr');
+ $yfym_file_url = urldecode(yfym_optionGET('yfym_file_url', $numFeed, 'set_arr'));
+ $yfym_date_sborki = yfym_optionGET('yfym_date_sborki', $numFeed, 'set_arr');
 ?>
 <div class="wrap">
  <h1><?php _e('Exporter Yandex Market', 'yfym'); ?></h1>
@@ -272,7 +280,7 @@ function yfym_export_page() {
 			<?php if (is_multisite()) {$cur_blog_id = get_current_blog_id();} else {$cur_blog_id = '0';}		
 			$allNumFeed = (int)yfym_ALLNUMFEED; $ii = '1';
 			for ($i = 1; $i<$allNumFeed+1; $i++) : ?>
-			<option value="<?php echo $i; ?>" <?php selected($numFeed, $i); ?>><?php _e('Feed', 'yfym'); ?> <?php echo $i; ?>: feed-yml-<?php echo $cur_blog_id; ?>.<?php $yfym_fe = yfym_optionGET('yfym_file_extension', (string)$i); if ($yfym_fe == '') {$yfym_fe = 'xml';} echo $yfym_fe; ?> <?php $assignment = yfym_optionGET('yfym_feed_assignment', $ii); if ($assignment === '') {} else {echo '('.$assignment.')';} ?></option>
+			<option value="<?php echo $i; ?>" <?php selected($numFeed, $i); ?>><?php _e('Feed', 'yfym'); ?> <?php echo $i; ?>: feed-yml-<?php echo $cur_blog_id; ?>.<?php $yfym_fe = yfym_optionGET('yfym_file_extension', (string)$i, 'set_arr'); if ($yfym_fe == '') {$yfym_fe = 'xml';} echo $yfym_fe; ?> <?php $assignment = yfym_optionGET('yfym_feed_assignment', $ii, 'set_arr'); if ($assignment === '') {} else {echo '('.$assignment.')';} ?></option>
 			<?php $ii++; endfor; ?>
 		</select>
 		<?php wp_nonce_field('yfym_nonce_action_send_select_feed', 'yfym_nonce_field_send_select_feed'); ?>
@@ -327,7 +335,7 @@ function yfym_export_page() {
   <div id="postbox-container-2" class="postbox-container"><div class="meta-box-sortables">
   	<?php do_action('yfym_prepend_container_2', $numFeed); ?>
 	<div class="postbox">
-	 <h2 class="hndle"><?php _e('Feed', 'yfym'); ?> <?php echo $numFeed; ?>: <?php if ($numFeed !== '1') {echo $numFeed;} ?>feed-yml-<?php echo $cur_blog_id; ?>.xml <?php $assignment = yfym_optionGET('yfym_feed_assignment', $numFeed); if ($assignment === '') {} else {echo '('.$assignment.')';} ?> <?php if (empty($yfym_file_url)) : ?><?php _e('not created yet', 'yfym'); ?><?php else : ?><?php if ($status_sborki !== -1) : ?><?php _e('updating', 'yfym'); ?><?php else : ?><?php _e('created', 'yfym'); ?><?php endif; ?><?php endif; ?></h2>	
+	 <h2 class="hndle"><?php _e('Feed', 'yfym'); ?> <?php echo $numFeed; ?>: <?php if ($numFeed !== '1') {echo $numFeed;} ?>feed-yml-<?php echo $cur_blog_id; ?>.xml <?php $assignment = yfym_optionGET('yfym_feed_assignment', $numFeed, 'set_arr'); if ($assignment === '') {} else {echo '('.$assignment.')';} ?> <?php if (empty($yfym_file_url)) : ?><?php _e('not created yet', 'yfym'); ?><?php else : ?><?php if ($status_sborki !== -1) : ?><?php _e('updating', 'yfym'); ?><?php else : ?><?php _e('created', 'yfym'); ?><?php endif; ?><?php endif; ?></h2>	
 	 <div class="inside">
 		<?php if (empty($yfym_file_url)) : ?> 
 			<?php if ($status_sborki !== -1) : ?>
@@ -479,7 +487,16 @@ function yfym_export_page() {
 			</td>
 		 </tr>		 
 		 <tr>
-			<th scope="row"><label for="yfym_main_product"><?php _e('What kind of products do you sell?', 'yfym'); ?></label></th>
+			<th scope="row"><label for="yfym_currencies"><?php _e('Element "currencies"', 'yfym'); ?></label></th>
+			<td class="overalldesc">
+				<select name="yfym_currencies" id="yfym_currencies">
+					<option value="enabled" <?php selected($yfym_currencies, 'enabled'); ?>><?php _e('Enabled', 'yfym'); ?></option>	
+					<option value="disabled" <?php selected($yfym_currencies, 'disabled'); ?>><?php _e('Disabled', 'yfym'); ?></option>
+				</select>
+			</td>
+		 </tr>		 
+		 <tr>
+			<th scope="row"><label for="yfym_main_product"><?php _e('What kind of products do you sell', 'yfym'); ?>?</label></th>
 			<td class="overalldesc">
 					<select name="yfym_main_product" id="yfym_main_product">
 					<option value="electronics" <?php selected($yfym_main_product, 'electronics'); ?>><?php _e('Electronics', 'yfym'); ?></option>
@@ -628,7 +645,7 @@ function yfym_export_page() {
 	 </div>	
 
 	 <div class="postbox">
-	  <h2 class="hndle"><?php _e('Turbo Pages', 'yfym'); ?>, CDEK, Единый каталог</h2>
+	  <h2 class="hndle"><?php _e('Turbo Pages', 'yfym'); ?>, CDEK, Единый каталог, OZON, EBay</h2>
 	  <div class="inside">
 	  	<p><i><?php _e('The elements located in this block are important when creating a YML feed for some models, but they are not important or even prohibited for others', 'yfym'); ?>.</i></p>
 	 	<table class="form-table"><tbody>
@@ -742,7 +759,7 @@ function yfym_export_page() {
 				<span class="description"><?php _e('Element', 'yfym'); ?> <strong>country_of_origin</strong>. <?php _e('This element indicates the country where the product was manufactured', 'yfym'); ?>. <?php _e('Required if the feeds for', 'yfym'); ?>: FBY, FBY+, FBS, <?php _e('Beru', 'yfym'); ?>. <?php _e('Optional element for', 'yfym'); ?>: ADV, DBS. <br /><a href="//partner.market.yandex.ru/pages/help/Countries.pdf" target="_blank"><?php _e('A list of possible values', 'yfym'); ?></a>.</span>
 			</td>
 		 </tr>
-		 <tr>
+		 <tr class="yfym_tr">
 			<th scope="row"><label for="yfym_source_id"><?php _e('Source ID of the product', 'yfym'); ?></label></th>
 			<td class="overalldesc">
 				<select name="yfym_source_id" id="yfym_source_id">
@@ -758,6 +775,12 @@ function yfym_export_page() {
 				<span class="description"><?php _e('Product ID source for OZON', 'yfym'); ?></span><br /><a href="https://seller-edu.ozon.ru/docs/work-with-goods/fidi.html" target="_blank"><?php _e('Read more', 'yfym'); ?></a>
 				<span class="description"><?php _e('If selected', 'yfym'); ?> <span class="yfym_bold">"<?php _e('Substitute from post meta', 'yfym'); ?>"</span> <?php _e('do not forget to fill out this field', 'yfym'); ?>:</span><br />
 				<input placeholder="<?php _e('Name post_meta', 'yfym'); ?>" type="text" name="yfym_source_id_post_meta" id="yfym_source_id_post_meta" value="<?php echo $yfym_source_id_post_meta; ?>" />
+			</td>
+		 </tr>
+		 <tr class="yfym_tr">
+			<th scope="row"><label for="yfym_ebay_stock"><?php _e('Add information about stock to feed for EBay', 'yfym'); ?></label></th>
+			<td class="overalldesc">
+				<input type="checkbox" id="yfym_ebay_stock" name="yfym_ebay_stock" <?php checked($yfym_ebay_stock, 'on' ); ?>/>				
 			</td>
 		 </tr>
 		 <?php do_action('yfym_append_turbo_set', $numFeed); /* с версии 3.3.8 */?>	 

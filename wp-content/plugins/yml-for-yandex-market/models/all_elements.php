@@ -5,7 +5,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_yml = ''; $ids_in_yml = ''; $skip_flag = false;
 
  if (class_exists('WOOCS')) { 
-	$yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed);
+	$yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed, 'set_arr');
 	if ($yfym_wooc_currencies !== '') {
 		global $WOOCS;
 		$WOOCS->set_currency($yfym_wooc_currencies);
@@ -19,7 +19,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  
  // что выгружать
  if ($product->is_type('variable')) {
-	$yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed);
+	$yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed, 'set_arr');
 	if ($yfym_whot_export === 'simple') {yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен т.к вариативный; Файл: all_elements.php; Строка: '.__LINE__, 0); return $result_yml;}
  }
  
@@ -27,7 +27,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $skip_flag = apply_filters('yfym_skip_flag', $skip_flag, $postId, $product, $numFeed); /* c версии 3.2.6 */
  if ($skip_flag === true) {yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен по флагу; Файл: all_elements.php; Строка: '.__LINE__, 0); return $result_yml;}
 
- $yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed);
+ $yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed, 'set_arr');
 
  /* общие данные для вариативных и обычных товаров */
  $res = get_woocommerce_currency(); // получаем валюта магазина
@@ -45,7 +45,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $currencyId_yml = apply_filters('yfym_currency_id', $currencyId_yml, $numFeed); /* с версии 3.3.15 */
 		  
  // Возможность купить товар в розничном магазине. // true или false
- $store = yfym_optionGET('yfym_store', $numFeed);
+ $store = yfym_optionGET('yfym_store', $numFeed, 'set_arr');
  if ($store === false || $store == '') {
 	yfym_error_log('FEED № '.$numFeed.'; WARNING: Товар с postId = '.$postId.' вернул пустой $result_yml_store; Файл: all_elements.php; Строка: '.__LINE__, 0);
 	$result_yml_store = '';
@@ -55,9 +55,9 @@ function yfym_all_elements($postId, $numFeed='1') {
 
  if (get_post_meta($postId, 'yfym_individual_delivery', true) !== '') {	
 	$delivery = get_post_meta($postId, 'yfym_individual_delivery', true);
-	if ($delivery === 'off') {$delivery = yfym_optionGET('yfym_delivery', $numFeed);}
+	if ($delivery === 'off') {$delivery = yfym_optionGET('yfym_delivery', $numFeed, 'set_arr');}
  } else {
- 	$delivery = yfym_optionGET('yfym_delivery', $numFeed);
+ 	$delivery = yfym_optionGET('yfym_delivery', $numFeed, 'set_arr');
  }
  if ($delivery === false || $delivery == '') {
 	yfym_error_log('FEED № '.$numFeed.'; WARNING: Товар с postId = '.$postId.' вернул пустой $delivery; Файл: all_elements.php; Строка: '.__LINE__, 0);
@@ -76,9 +76,9 @@ function yfym_all_elements($postId, $numFeed='1') {
 
  if (get_post_meta($postId, 'yfym_individual_pickup', true) !== '') {	
 	$pickup = get_post_meta($postId, 'yfym_individual_pickup', true);
-	if ($pickup === 'off') {$pickup = yfym_optionGET('yfym_pickup', $numFeed);}
+	if ($pickup === 'off') {$pickup = yfym_optionGET('yfym_pickup', $numFeed, 'set_arr');}
  } else {
- 	$pickup = yfym_optionGET('yfym_pickup', $numFeed);
+ 	$pickup = yfym_optionGET('yfym_pickup', $numFeed, 'set_arr');
  }
  if ($pickup === false || $pickup == '') {
 	yfym_error_log('FEED № '.$numFeed.'; WARNING: Товар с postId = '.$postId.' вернул пустой $pickup; Файл: all_elements.php; Строка: '.__LINE__, 0);
@@ -92,8 +92,8 @@ function yfym_all_elements($postId, $numFeed='1') {
  /* с версии 2.0.7 в фильтр добавлен параметр $product */
 		  
  // описание
- $yfym_desc = yfym_optionGET('yfym_desc', $numFeed);
- $yfym_the_content = yfym_optionGET('yfym_the_content', $numFeed);
+ $yfym_desc = yfym_optionGET('yfym_desc', $numFeed, 'set_arr');
+ $yfym_the_content = yfym_optionGET('yfym_the_content', $numFeed, 'set_arr');
 
  switch ($yfym_desc) { 
 	case "full": $description_yml = $product->get_description(); break;
@@ -213,7 +213,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  * $termin->count - количество содержащихся в нем постов
  */	
 
- $vat = yfym_optionGET('yfym_vat', $numFeed);
+ $vat = yfym_optionGET('yfym_vat', $numFeed, 'set_arr');
  if ($vat === 'disabled') {$result_yml_vat = '';} else {
 	if (get_post_meta($postId, 'yfym_individual_vat', true) !== '') {$individual_vat = get_post_meta($postId, 'yfym_individual_vat', true);} else {$individual_vat = 'global';}
 	if ($individual_vat === 'global') {
@@ -236,7 +236,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_box_count_yml = '';
  $yfym_delivery_weekday_yml = '';
 
-	$yfym_market_sku_status = yfym_optionGET('yfym_market_sku_status', $numFeed);
+	$yfym_market_sku_status = yfym_optionGET('yfym_market_sku_status', $numFeed, 'set_arr');
 	if ((get_post_meta($postId, '_yfym_market_sku', true) !== '') && ($yfym_market_sku_status === 'enabled')) {
 		$yfym_market_sku = get_post_meta($postId, '_yfym_market_sku', true);
 		$result_market_sku_yml .= '<market-sku>'.$yfym_market_sku.'</market-sku>'.PHP_EOL;
@@ -304,7 +304,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  // если вариация - нам нет смысла выгружать общее предложение
  if ($product->is_type('variable')) {
 	yfym_error_log('FEED № '.$numFeed.'; У нас вариативный товар. Файл: all_elements.php; Строка: '.__LINE__, 0);	
-	$yfym_var_desc_priority = yfym_optionGET('yfym_var_desc_priority', $numFeed);
+	$yfym_var_desc_priority = yfym_optionGET('yfym_var_desc_priority', $numFeed, 'set_arr');
 	$variations = array();
 	if ($product->is_type('variable')) {
 		$variations = $product->get_available_variations();
@@ -329,9 +329,9 @@ function yfym_all_elements($postId, $numFeed='1') {
 		if ($price_yml == 0 || empty($price_yml)) {yfym_error_log('FEED № '.$numFeed.'; Вариация товара с postId = '.$postId.' пропущена т.к нет цены; Файл: all_elements.php; Строка: '.__LINE__, 0); continue;}
 		
 		if (class_exists('YmlforYandexMarketPro')) {
-			if ((yfym_optionGET('yfymp_compare_value', $numFeed) !== false) && (yfym_optionGET('yfymp_compare_value', $numFeed) !== '')) {
-			 $yfymp_compare_value = yfym_optionGET('yfymp_compare_value', $numFeed);
-			 $yfymp_compare = yfym_optionGET('yfymp_compare', $numFeed);			 
+			if ((yfym_optionGET('yfymp_compare_value', $numFeed, 'set_arr') !== false) && (yfym_optionGET('yfymp_compare_value', $numFeed, 'set_arr') !== '')) {
+			 $yfymp_compare_value = yfym_optionGET('yfymp_compare_value', $numFeed, 'set_arr');
+			 $yfymp_compare = yfym_optionGET('yfymp_compare', $numFeed, 'set_arr');			 
 			 if ($yfymp_compare == '>=') {
 				if ($price_yml < $yfymp_compare_value) {continue;}
 			 } else {
@@ -340,13 +340,13 @@ function yfym_all_elements($postId, $numFeed='1') {
 			}
 		}
 		// пропуск вариаций, которых нет в наличии
-		$yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed);
+		$yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed, 'set_arr');
 		if ($yfym_skip_missing_products === 'on') {
 			if ($offer->is_in_stock() == false) {yfym_error_log('FEED № '.$numFeed.'; Вариация товара с postId = '.$postId.' пропущена т.к ее нет в наличии; Файл: all_elements.php; Строка: '.__LINE__, 0); continue;}
 		}
 			 
 		// пропускаем вариации на предзаказ
-		$skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed);
+		$skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed, 'set_arr');
 		if ($skip_backorders_products === 'on') {
 		 if ($offer->get_manage_stock() == true) { // включено управление запасом
 			if (($offer->get_stock_quantity() < 1) && ($offer->get_backorders() !== 'no')) {yfym_error_log('FEED № '.$numFeed.'; Вариация товара с postId = '.$postId.' пропущена т.к запрещен предзаказ и включено управление запасом; Файл: all_elements.php; Строка: '.__LINE__, 0); continue;}
@@ -360,7 +360,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$thumb_yml = get_the_post_thumbnail_url($offer->get_id(), 'full');
 		if (empty($thumb_yml)) {			
 			// убираем default.png из фида
-			$no_default_png_products = yfym_optionGET('yfym_no_default_png_products', $numFeed);
+			$no_default_png_products = yfym_optionGET('yfym_no_default_png_products', $numFeed, 'set_arr');
 			if (($no_default_png_products === 'on') && (!has_post_thumbnail($postId))) {$picture_yml = '';} else {
 				$thumb_id = get_post_thumbnail_id($postId);
 				$thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);	
@@ -391,7 +391,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 				if ($offer->get_backorders() === 'no') { // предзаказ запрещен
 					$available = 'false';
 				} else {
-					$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed);
+					$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed, 'set_arr');
 					if ($yfym_behavior_onbackorder === 'false') {
 						$available = 'false';
 					} else {
@@ -405,7 +405,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 			} else if ($offer->get_stock_status() === 'outofstock') { 
 				$available = 'false';
 			} else {
-				$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed);
+				$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed, 'set_arr');
 				if ($yfym_behavior_onbackorder === 'false') {
 					$available = 'false';
 				} else {
@@ -444,7 +444,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 			 $attributes = $product->get_attributes(); // получили все атрибуты товара
 			 $param_at_name = '';		
 
-			 $separator_type = yfym_optionGET('yfym_separator_type', $numFeed);			 
+			 $separator_type = yfym_optionGET('yfym_separator_type', $numFeed, 'set_arr');			 
 			 switch ($separator_type) {
 				case "type1":
 					$so = '('; $sz = ')';
@@ -510,7 +510,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		
 		// страна производитель
 		$result_yml_country_of_origin = '';
-		$country_of_origin = yfym_optionGET('yfym_country_of_origin', $numFeed);
+		$country_of_origin = yfym_optionGET('yfym_country_of_origin', $numFeed, 'set_arr');
 		if (!empty($country_of_origin) && $country_of_origin !== 'off') {
 			$country_of_origin = (int)$country_of_origin;
 			$country_of_origin_yml = $offer->get_attribute(wc_attribute_taxonomy_name_by_id($country_of_origin));
@@ -525,7 +525,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		}
 
 		$result_yml_manufacturer = '';
-		$yfym_manufacturer = yfym_optionGET('yfym_manufacturer', $numFeed);
+		$yfym_manufacturer = yfym_optionGET('yfym_manufacturer', $numFeed, 'set_arr');
 		if (!empty($yfym_manufacturer) && $yfym_manufacturer !== 'disabled') {
 			$yfym_manufacturer = (int)$yfym_manufacturer;
 			$yfym_manufacturer_yml = $offer->get_attribute(wc_attribute_taxonomy_name_by_id($yfym_manufacturer));
@@ -540,7 +540,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		}
 
 		$result_yml_vendor = '';
-		$vendor = yfym_optionGET('yfym_vendor', $numFeed);
+		$vendor = yfym_optionGET('yfym_vendor', $numFeed, 'set_arr');
 		if ((is_plugin_active('perfect-woocommerce-brands/perfect-woocommerce-brands.php') || is_plugin_active('perfect-woocommerce-brands/main.php') || class_exists('Perfect_Woocommerce_Brands')) && $vendor === 'sfpwb') {
 			$barnd_terms = get_the_terms($product->get_id(), 'pwb-brand');
 			if ($barnd_terms !== false) {
@@ -581,7 +581,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		}			
 		
 		$result_yml_shop_sku = '';
-		$yfym_shop_sku = yfym_optionGET('yfym_shop_sku', $numFeed);
+		$yfym_shop_sku = yfym_optionGET('yfym_shop_sku', $numFeed, 'set_arr');
 		switch ($yfym_shop_sku) { /* disabled, sku, products_id, или id */
 			case "disabled":	
 			   // выгружать штрихкод нет нужды
@@ -629,7 +629,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= '<offer '.$offer_type.$gi.' id="'.$offer_id.'" available="'.$available.'" '.$append_offer_tag.'>'.PHP_EOL;		
 		do_action('yfym_prepend_variable_offer');
 
-		$yfym_auto_disabled = yfym_optionGET('yfym_auto_disabled', $numFeed);
+		$yfym_auto_disabled = yfym_optionGET('yfym_auto_disabled', $numFeed, 'set_arr');
 		if ($yfym_auto_disabled === 'yes') {
 			if ($offer->is_in_stock() == false) {
 				$result_yml .= '<disabled>true</disabled>'.PHP_EOL;
@@ -660,9 +660,22 @@ function yfym_all_elements($postId, $numFeed='1') {
 			}	
 		}
 
+		$yfym_ebay_stock = yfym_optionGET('yfym_ebay_stock', $numFeed, 'set_arr');
+		if ($yfym_ebay_stock === 'on') {
+			if ($offer->get_manage_stock() == true) { // включено управление запасом
+				$stock_quantity = $offer->get_stock_quantity();
+				$result_yml .= '<param name="stock">'.$stock_quantity.'</param>'.PHP_EOL; 
+			} else {
+				if ($product->get_manage_stock() == true) { // включено управление запасом  
+					$stock_quantity = $product->get_stock_quantity();
+					$result_yml .= '<param name="stock">'.$stock_quantity.'</param>'.PHP_EOL;
+				}
+			}
+		}
+
 		$result_yml_name_itog = apply_filters('yfym_before_insert_name_filter', $result_yml_name_itog, $numFeed); /* с версии 3.3.18 */
 		$result_yml .= "<name>".htmlspecialchars($result_yml_name_itog, ENT_NOQUOTES)."</name>".PHP_EOL;
-		$yfym_enable_auto_discounts = yfym_optionGET('yfym_enable_auto_discounts', $numFeed);
+		$yfym_enable_auto_discounts = yfym_optionGET('yfym_enable_auto_discounts', $numFeed, 'set_arr');
 		if ($yfym_enable_auto_discounts === 'on') {
 			$result_yml .= "<enable_auto_discounts>yes</enable_auto_discounts>".PHP_EOL;
 		}
@@ -706,7 +719,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= $picture_yml;	
 	 
 		$result_url = htmlspecialchars(get_permalink($offer->get_id()));
-		$yfym_clear_get = yfym_optionGET('yfym_clear_get', $numFeed);
+		$yfym_clear_get = yfym_optionGET('yfym_clear_get', $numFeed, 'set_arr');
 		if ($yfym_clear_get === 'yes') {$result_url = deleteGET($result_url, 'url');}
 		$result_url = apply_filters('yfym_url_filter', $result_url, $product, $CurCategoryId, $numFeed); /* с версии 2.0.12 в фильтр добавлен параметр $CurCategoryId */
 		$result_url = apply_filters('yfym_variable_url_filter', $result_url, $product, $offer, $CurCategoryId, $numFeed); /* с версии 3.3.14 */		
@@ -714,14 +727,14 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= "<url>".$result_url."</url>".PHP_EOL;
 		 
 		$price_yml = apply_filters('yfym_variable_price_yml_filter', $price_yml, $product, $offer, $numFeed); /* с версии 3.1.0 */
-		$yfym_price_from = yfym_optionGET('yfym_price_from', $numFeed);
+		$yfym_price_from = yfym_optionGET('yfym_price_from', $numFeed, 'set_arr');
 		if ($yfym_price_from === 'yes') {
 			$result_yml .= "<price from='true'>".$price_yml."</price>".PHP_EOL;
 		} else {
 			$result_yml .= "<price>".$price_yml."</price>".PHP_EOL;
 		}
 		// старая цена
-		$yfym_oldprice = yfym_optionGET('yfym_oldprice', $numFeed);
+		$yfym_oldprice = yfym_optionGET('yfym_oldprice', $numFeed, 'set_arr');
 		if ($yfym_oldprice === 'yes') {
 			$price_yml = (float)$price_yml;
 			$sale_price = (float)$offer->get_sale_price();
@@ -739,22 +752,22 @@ function yfym_all_elements($postId, $numFeed='1') {
 
 		if ($offer->get_manage_stock() == true) { // включено управление запасом
 			$stock_quantity = $offer->get_stock_quantity();
-			$yfym_count = yfym_optionGET('yfym_count', $numFeed);
+			$yfym_count = yfym_optionGET('yfym_count', $numFeed, 'set_arr');
 			if ($yfym_count === 'enabled' && $stock_quantity > -1) {
 				$result_yml .= '<count>'.$stock_quantity.'</count>'.PHP_EOL;
 			}
-			$yfym_amount = yfym_optionGET('yfym_amount', $numFeed);
+			$yfym_amount = yfym_optionGET('yfym_amount', $numFeed, 'set_arr');
 			if ($yfym_amount === 'enabled' && $stock_quantity > -1) {
 				$result_yml .= '<amount>'.$stock_quantity.'</amount>'.PHP_EOL;
 			}
 		} else {
 			if ($product->get_manage_stock() == true) { // включено управление запасом
 				$stock_quantity = $product->get_stock_quantity();
-				$yfym_count = yfym_optionGET('yfym_count', $numFeed);
+				$yfym_count = yfym_optionGET('yfym_count', $numFeed, 'set_arr');
 				if ($yfym_count === 'enabled' && $stock_quantity > -1) {
 					$result_yml .= '<count>'.$stock_quantity.'</count>'.PHP_EOL;
 				}
-				$yfym_amount = yfym_optionGET('yfym_amount', $numFeed);
+				$yfym_amount = yfym_optionGET('yfym_amount', $numFeed, 'set_arr');
 				if ($yfym_amount === 'enabled' && $stock_quantity > -1) {
 					$result_yml .= '<amount>'.$stock_quantity.'</amount>'.PHP_EOL;
 				}
@@ -762,7 +775,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		}	
 
 		// штрихкод			 
-		$yfym_barcode = yfym_optionGET('yfym_barcode', $numFeed);
+		$yfym_barcode = yfym_optionGET('yfym_barcode', $numFeed, 'set_arr');
 		switch ($yfym_barcode) { /* disabled, sku, или id */
 			case "disabled":	
 				// выгружать штрихкод нет нужды
@@ -781,7 +794,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 				}
 			break;
 			case "post_meta":
-				$barcode_post_meta_id = yfym_optionGET('yfym_barcode_post_meta', $numFeed);
+				$barcode_post_meta_id = yfym_optionGET('yfym_barcode_post_meta', $numFeed, 'set_arr');
 				$barcode_post_meta_id = trim($barcode_post_meta_id);
 
 				if (get_post_meta($postId, $barcode_post_meta_id, true) !== '') {					
@@ -846,7 +859,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 			}
 		}
 
-		$expiry = yfym_optionGET('yfym_expiry', $numFeed);
+		$expiry = yfym_optionGET('yfym_expiry', $numFeed, 'set_arr');
 		if (!empty($expiry) && $expiry !== 'off') {
 			$expiry = (int)$expiry;
 			$expiry_yml = $offer->get_attribute(wc_attribute_taxonomy_name_by_id($expiry));
@@ -859,7 +872,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 				}		
 			}
 		}
-		$age = yfym_optionGET('yfym_age', $numFeed);
+		$age = yfym_optionGET('yfym_age', $numFeed, 'set_arr');
 		if (!empty($age) && $age !== 'off') {
 		 $age = (int)$age;
 		 $age_yml = $offer->get_attribute(wc_attribute_taxonomy_name_by_id($age));
@@ -872,7 +885,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 			}
 		 }
 		}
-		$downloadable = yfym_optionGET('yfym_downloadable', $numFeed);
+		$downloadable = yfym_optionGET('yfym_downloadable', $numFeed, 'set_arr');
 		if (!empty($downloadable) && $downloadable !== 'off') {
 			if ($offer->is_downloadable('yes')) {
 				$result_yml .= "<downloadable>true</downloadable>".PHP_EOL;	
@@ -894,7 +907,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= $result_box_count_yml;
 		$result_yml .= $yfym_delivery_weekday_yml;
 			 
-		$sales_notes_cat = yfym_optionGET('yfym_sales_notes_cat', $numFeed);
+		$sales_notes_cat = yfym_optionGET('yfym_sales_notes_cat', $numFeed, 'set_arr');
 		if (!empty($sales_notes_cat) && $sales_notes_cat !== 'off') {
 			$sales_notes_cat = (int)$sales_notes_cat;
 			$sales_notes_yml = $offer->get_attribute(wc_attribute_taxonomy_name_by_id($sales_notes_cat));
@@ -904,7 +917,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 			if (!empty($sales_notes_yml)) {	
 				$result_yml .= "<sales_notes>".ucfirst(yfym_replace_decode($sales_notes_yml))."</sales_notes>".PHP_EOL;		
 			} else {
-				$sales_notes = yfym_optionGET('yfym_sales_notes', $numFeed);
+				$sales_notes = yfym_optionGET('yfym_sales_notes', $numFeed, 'set_arr');
 				if (!empty($sales_notes)) {
 					$result_yml .= "<sales_notes>$sales_notes</sales_notes>".PHP_EOL;
 				}
@@ -912,7 +925,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		}
 
 		// гарантия
-		$manufacturer_warranty = yfym_optionGET('yfym_manufacturer_warranty', $numFeed);
+		$manufacturer_warranty = yfym_optionGET('yfym_manufacturer_warranty', $numFeed, 'set_arr');
 		if (!empty($manufacturer_warranty) && $manufacturer_warranty !== 'off') {			
 			if ($manufacturer_warranty === 'alltrue') {
 				$result_yml .= "<manufacturer_warranty>true</manufacturer_warranty>".PHP_EOL;
@@ -934,7 +947,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= $result_yml_vendor;
 		$result_yml .= $result_yml_shop_sku;
 
-		$model = yfym_optionGET('yfym_model', $numFeed);
+		$model = yfym_optionGET('yfym_model', $numFeed, 'set_arr');
 		switch ($model) { /* disabled, sku, или id */
 			case "disabled":	
 			   // выгружать штрихкод нет нужды
@@ -967,7 +980,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 			 
 		// вариция. если offer_type пуст, то можно выгружать vendorCode
 		// if ($offer_type =='') { 
-		$yfym_vendorcode = yfym_optionGET('yfym_vendorcode', $numFeed);
+		$yfym_vendorcode = yfym_optionGET('yfym_vendorcode', $numFeed, 'set_arr');
 		switch ($yfym_vendorcode) { /* disabled, sku, или id */
 		case "disabled":	
 			// выгружать штрихкод нет нужды
@@ -1091,9 +1104,9 @@ function yfym_all_elements($postId, $numFeed='1') {
  $price_yml = apply_filters('yfym_simple_price_filter', $price_yml, $product, $numFeed); /* с версии 3.0.0 */ 
  if ($price_yml == 0 || empty($price_yml)) {yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен т.к нет цены; Файл: all_elements.php; Строка: '.__LINE__, 0); return $result_yml;}
  if (class_exists('YmlforYandexMarketPro')) {
-	if ((yfym_optionGET('yfymp_compare_value', $numFeed) !== false) && (yfym_optionGET('yfymp_compare_value', $numFeed) !== '')) {
-		$yfymp_compare_value = yfym_optionGET('yfymp_compare_value', $numFeed);
-		$yfymp_compare = yfym_optionGET('yfymp_compare', $numFeed);			 
+	if ((yfym_optionGET('yfymp_compare_value', $numFeed, 'set_arr') !== false) && (yfym_optionGET('yfymp_compare_value', $numFeed, 'set_arr') !== '')) {
+		$yfymp_compare_value = yfym_optionGET('yfymp_compare_value', $numFeed, 'set_arr');
+		$yfymp_compare = yfym_optionGET('yfymp_compare', $numFeed, 'set_arr');			 
 		if ($yfymp_compare == '>=') {
 			if ($price_yml < $yfymp_compare_value) {return $result_yml;}
 		} else {
@@ -1102,14 +1115,14 @@ function yfym_all_elements($postId, $numFeed='1') {
 	}
  }
  // пропуск товаров, которых нет в наличии
- $yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed);
+ $yfym_skip_missing_products = yfym_optionGET('yfym_skip_missing_products', $numFeed, 'set_arr');
  yfym_error_log('FEED № '.$numFeed.'; $yfym_skip_missing_products = '.$yfym_skip_missing_products.'; gettype = '.gettype($yfym_skip_missing_products).'; Файл: all_elements.php; Строка: '.__LINE__, 0);
  if ($yfym_skip_missing_products === 'on') {
 	if ($product->is_in_stock() == false) {yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен т.к нет в наличии; Файл: all_elements.php; Строка: '.__LINE__, 0); return $result_yml;}
  }		  
 
  // пропускаем товары на предзаказ
- $skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed);
+ $skip_backorders_products = yfym_optionGET('yfym_skip_backorders_products', $numFeed, 'set_arr');
  if ($skip_backorders_products === 'on') {
 	if ($product->get_manage_stock() == true) { // включено управление запасом  
 		if (($product->get_stock_quantity() < 1) && ($product->get_backorders() !== 'no')) {yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен т.к запрещен предзаказ и включено управление запасом; Файл: all_elements.php; Строка: '.__LINE__, 0); return $result_yml; /*continue;*/}
@@ -1119,7 +1132,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  }  
 
  // убираем default.png из фида
- $no_default_png_products = yfym_optionGET('yfym_no_default_png_products', $numFeed);
+ $no_default_png_products = yfym_optionGET('yfym_no_default_png_products', $numFeed, 'set_arr');
  if (($no_default_png_products === 'on') && (!has_post_thumbnail($postId))) {$picture_yml = '';} else {
 	$thumb_id = get_post_thumbnail_id($postId);
 	$thumb_url = wp_get_attachment_image_src($thumb_id, 'full', true);	
@@ -1129,14 +1142,14 @@ function yfym_all_elements($postId, $numFeed='1') {
  $picture_yml = apply_filters('yfym_pic_simple_offer_filter', $picture_yml, $product, $numFeed);
 
  // пропускаем товары без картинок
- $yfym_skip_products_without_pic = yfym_optionGET('yfym_skip_products_without_pic', $numFeed); 
+ $yfym_skip_products_without_pic = yfym_optionGET('yfym_skip_products_without_pic', $numFeed, 'set_arr'); 
  if (($yfym_skip_products_without_pic === 'on') && ($picture_yml == '')) {	  
 	yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен т.к нет картинки даже в галерее; Файл: all_elements.php; Строка: '.__LINE__, 0); return $result_yml; /*continue;*/  
  }
 	
  // страна производитель
  $result_yml_country_of_origin = '';
- $country_of_origin = yfym_optionGET('yfym_country_of_origin', $numFeed);
+ $country_of_origin = yfym_optionGET('yfym_country_of_origin', $numFeed, 'set_arr');
  if (!empty($country_of_origin) && $country_of_origin !== 'off') {
 	$country_of_origin = (int)$country_of_origin;
 	$country_of_origin_yml = $product->get_attribute(wc_attribute_taxonomy_name_by_id($country_of_origin));
@@ -1156,7 +1169,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  }
 
  $result_yml_vendor = '';
- $vendor = yfym_optionGET('yfym_vendor', $numFeed);
+ $vendor = yfym_optionGET('yfym_vendor', $numFeed, 'set_arr');
  if ((is_plugin_active('perfect-woocommerce-brands/perfect-woocommerce-brands.php') || is_plugin_active('perfect-woocommerce-brands/main.php') || class_exists('Perfect_Woocommerce_Brands')) && $vendor === 'sfpwb') {
 	$barnd_terms = get_the_terms($product->get_id(), 'pwb-brand');
 	if ($barnd_terms !== false) {
@@ -1192,7 +1205,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  }
  
  $result_yml_shop_sku = '';
- $yfym_shop_sku = yfym_optionGET('yfym_shop_sku', $numFeed);
+ $yfym_shop_sku = yfym_optionGET('yfym_shop_sku', $numFeed, 'set_arr');
  switch ($yfym_shop_sku) { /* disabled, sku, products_id, или id */
 	case "disabled":	
 	   // выгружать штрихкод нет нужды
@@ -1230,7 +1243,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		if ($product->get_backorders() === 'no') { // предзаказ запрещен
 			$available = 'false';
 		} else {
-			$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed);
+			$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed, 'set_arr');
 			if ($yfym_behavior_onbackorder === 'false') {
 				$available = 'false';
 			} else {
@@ -1244,7 +1257,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 	} else if ($product->get_stock_status() === 'outofstock') { 
 		$available = 'false';
 	} else {
-		$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed);
+		$yfym_behavior_onbackorder = yfym_optionGET('yfym_behavior_onbackorder', $numFeed, 'set_arr');
 		if ($yfym_behavior_onbackorder === 'false') {
 			$available = 'false';
 		} else {
@@ -1262,7 +1275,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_yml .= '<offer '.$offer_type.' id="'.$postId.'" available="'.$available.'" '.$append_offer_tag.'>'.PHP_EOL;
  do_action('yfym_prepend_simple_offer');
 
- $yfym_auto_disabled = yfym_optionGET('yfym_auto_disabled', $numFeed);
+ $yfym_auto_disabled = yfym_optionGET('yfym_auto_disabled', $numFeed, 'set_arr');
  if ($yfym_auto_disabled === 'yes') {
 	if ($product->is_in_stock() == false) {
 		$result_yml .= '<disabled>true</disabled>'.PHP_EOL;
@@ -1287,9 +1300,17 @@ function yfym_all_elements($postId, $numFeed='1') {
 	}
  }
 
+ $yfym_ebay_stock = yfym_optionGET('yfym_ebay_stock', $numFeed, 'set_arr');
+ if ($yfym_ebay_stock === 'on') {
+	if ($product->get_manage_stock() == true) { // включено управление запасом
+		$stock_quantity = $product->get_stock_quantity();
+		$result_yml .= '<param name="stock">'.$stock_quantity.'</param>'.PHP_EOL; 
+	}
+ }
+
  $result_yml_name = apply_filters('yfym_before_insert_name_filter', $result_yml_name, $numFeed); /* с версии 3.3.18 */
  $result_yml .= "<name>".htmlspecialchars($result_yml_name, ENT_NOQUOTES)."</name>".PHP_EOL;
- $yfym_enable_auto_discounts = yfym_optionGET('yfym_enable_auto_discounts', $numFeed);
+ $yfym_enable_auto_discounts = yfym_optionGET('yfym_enable_auto_discounts', $numFeed, 'set_arr');
  if ($yfym_enable_auto_discounts === 'on') {
 	$result_yml .= "<enable_auto_discounts>yes</enable_auto_discounts>".PHP_EOL;
  }			
@@ -1299,7 +1320,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_yml .= $picture_yml;  
 		   
  $result_url = htmlspecialchars(get_permalink($product->get_id())); // урл товара
- $yfym_clear_get = yfym_optionGET('yfym_clear_get', $numFeed);
+ $yfym_clear_get = yfym_optionGET('yfym_clear_get', $numFeed, 'set_arr');
  if ($yfym_clear_get === 'yes') {$result_url = deleteGET($result_url, 'url');} 
  $result_url = apply_filters('yfym_url_filter', $result_url, $product, $CurCategoryId, $numFeed);
  $result_url = apply_filters('yfym_simple_url_filter', $result_url, $product, $CurCategoryId, $numFeed); /* с версии 3.3.14 */
@@ -1308,14 +1329,14 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_yml .= "<url>".$result_url."</url>".PHP_EOL;
 
  $price_yml = apply_filters('yfym_simple_price_yml_filter', $price_yml, $product, $numFeed); /* с версии 3.1.0 */ 
- $yfym_price_from = yfym_optionGET('yfym_price_from', $numFeed);
+ $yfym_price_from = yfym_optionGET('yfym_price_from', $numFeed, 'set_arr');
  if ($yfym_price_from === 'yes') {
 	$result_yml .= "<price from='true'>".$price_yml."</price>".PHP_EOL;
  } else {
 	$result_yml .= "<price>".$price_yml."</price>".PHP_EOL;
  }
  // старая цена
- $yfym_oldprice = yfym_optionGET('yfym_oldprice', $numFeed);
+ $yfym_oldprice = yfym_optionGET('yfym_oldprice', $numFeed, 'set_arr');
  if ($yfym_oldprice === 'yes') {
 	$price_yml = (float)$price_yml;
 	$sale_price = (float)$product->get_sale_price();
@@ -1334,18 +1355,18 @@ function yfym_all_elements($postId, $numFeed='1') {
 
  if ($product->get_manage_stock() == true) { // включено управление запасом  
 	$stock_quantity = $product->get_stock_quantity();
-	$yfym_count = yfym_optionGET('yfym_count', $numFeed);
+	$yfym_count = yfym_optionGET('yfym_count', $numFeed, 'set_arr');
 	if ($yfym_count === 'enabled' && $stock_quantity > -1) {
 		$result_yml .= '<count>'.$stock_quantity.'</count>'.PHP_EOL;
 	}
-	$yfym_amount = yfym_optionGET('yfym_amount', $numFeed);
+	$yfym_amount = yfym_optionGET('yfym_amount', $numFeed, 'set_arr');
 	if ($yfym_amount === 'enabled' && $stock_quantity > -1) {
 		$result_yml .= '<amount>'.$stock_quantity.'</amount>'.PHP_EOL;
 	}	
  } 
 
  // штрихкод
- $yfym_barcode = yfym_optionGET('yfym_barcode', $numFeed);
+ $yfym_barcode = yfym_optionGET('yfym_barcode', $numFeed, 'set_arr');
  switch ($yfym_barcode) { /* disabled, sku, или id */
 	case "disabled":	
 		// выгружать штрихкод нет нужды
@@ -1358,7 +1379,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		}	
 	break;
 	case "post_meta":
-		$barcode_post_meta_id = yfym_optionGET('yfym_barcode_post_meta', $numFeed);
+		$barcode_post_meta_id = yfym_optionGET('yfym_barcode_post_meta', $numFeed, 'set_arr');
 		$barcode_post_meta_id = trim($barcode_post_meta_id);
 
 		if (get_post_meta($postId, $barcode_post_meta_id, true) !== '') {					
@@ -1413,7 +1434,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 	}
  }
 
- $expiry = yfym_optionGET('yfym_expiry', $numFeed);
+ $expiry = yfym_optionGET('yfym_expiry', $numFeed, 'set_arr');
  if (!empty($expiry) && $expiry !== 'off') {
 	$expiry = (int)$expiry;
 	$expiry_yml = $product->get_attribute(wc_attribute_taxonomy_name_by_id($expiry));
@@ -1421,7 +1442,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= "<expiry>".ucfirst(yfym_replace_decode($expiry_yml))."</expiry>".PHP_EOL;		
 	}
  }
- $age = yfym_optionGET('yfym_age', $numFeed);
+ $age = yfym_optionGET('yfym_age', $numFeed, 'set_arr');
  if (!empty($age) && $age !== 'off') {	
 	$age = (int)$age;
 	$age_yml = $product->get_attribute(wc_attribute_taxonomy_name_by_id($age));
@@ -1429,7 +1450,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 		$result_yml .= "<age>".ucfirst(yfym_replace_decode($age_yml))."</age>".PHP_EOL;		
 	}
  }
- $downloadable = yfym_optionGET('yfym_downloadable', $numFeed);
+ $downloadable = yfym_optionGET('yfym_downloadable', $numFeed, 'set_arr');
  if (!empty($downloadable) && $downloadable !== 'off') {
 	if ($product->is_downloadable('yes')) {
 		$result_yml .= "<downloadable>true</downloadable>".PHP_EOL;	
@@ -1438,14 +1459,14 @@ function yfym_all_elements($postId, $numFeed='1') {
 	}
  }
 		  
- $sales_notes_cat = yfym_optionGET('yfym_sales_notes_cat', $numFeed);
+ $sales_notes_cat = yfym_optionGET('yfym_sales_notes_cat', $numFeed, 'set_arr');
  if (!empty($sales_notes_cat) && $sales_notes_cat !== 'off') {
 	$sales_notes_cat = (int)$sales_notes_cat;
 	$sales_notes_yml = $product->get_attribute(wc_attribute_taxonomy_name_by_id($sales_notes_cat));
 	if (!empty($sales_notes_yml)) {	
 		$result_yml .= "<sales_notes>".ucfirst(yfym_replace_decode($sales_notes_yml))."</sales_notes>".PHP_EOL;		
 	} else {
-		$sales_notes = yfym_optionGET('yfym_sales_notes', $numFeed);
+		$sales_notes = yfym_optionGET('yfym_sales_notes', $numFeed, 'set_arr');
 		if (!empty($sales_notes)) {
 			$result_yml .= "<sales_notes>$sales_notes</sales_notes>".PHP_EOL;
 		}
@@ -1466,7 +1487,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_yml .= $yfym_delivery_weekday_yml;
 
  // гарантия
- $manufacturer_warranty = yfym_optionGET('yfym_manufacturer_warranty', $numFeed);
+ $manufacturer_warranty = yfym_optionGET('yfym_manufacturer_warranty', $numFeed, 'set_arr');
  if (!empty($manufacturer_warranty) && $manufacturer_warranty !== 'off') {	
 	if ($manufacturer_warranty === 'alltrue') {
 		$result_yml .= "<manufacturer_warranty>true</manufacturer_warranty>".PHP_EOL;
@@ -1484,7 +1505,7 @@ function yfym_all_elements($postId, $numFeed='1') {
  $result_yml .= $result_yml_vendor;
  $result_yml .= $result_yml_shop_sku;
 
- $model = yfym_optionGET('yfym_model', $numFeed);
+ $model = yfym_optionGET('yfym_model', $numFeed, 'set_arr');
  switch ($model) { /* disabled, sku, или id */
 	case "disabled":	
 	   // выгружать штрихкод нет нужды
@@ -1506,7 +1527,7 @@ function yfym_all_elements($postId, $numFeed='1') {
 
  // если offer_type пуст, то можно выгружать vendorCode
  if ($offer_type == '') {
-	$yfym_vendorcode = yfym_optionGET('yfym_vendorcode', $numFeed);
+	$yfym_vendorcode = yfym_optionGET('yfym_vendorcode', $numFeed, 'set_arr');
 	switch ($yfym_vendorcode) { /* disabled, sku, или id */
 		case "disabled":	
 			// выгружать штрихкод нет нужды

@@ -5,9 +5,9 @@ function yfym_feed_header($numFeed = '1') {
 
  $result_yml = '';
  $unixtime = current_time('Y-m-d H:i'); // время в unix формате 
- yfym_optionUPD('yfym_date_sborki', $unixtime, $numFeed);		
- $shop_name = stripslashes(yfym_optionGET('yfym_shop_name', $numFeed));
- $company_name = stripslashes(yfym_optionGET('yfym_company_name', $numFeed));
+ yfym_optionUPD('yfym_date_sborki', $unixtime, $numFeed, 'yes', 'set_arr');		
+ $shop_name = stripslashes(yfym_optionGET('yfym_shop_name', $numFeed, 'set_arr'));
+ $company_name = stripslashes(yfym_optionGET('yfym_company_name', $numFeed, 'set_arr'));
  $result_yml .= '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
  $result_yml .= '<yml_catalog date="'.$unixtime.'">'.PHP_EOL;
  $result_yml .= "<shop>". PHP_EOL ."<name>".esc_html($shop_name)."</name>".PHP_EOL;
@@ -19,7 +19,7 @@ function yfym_feed_header($numFeed = '1') {
  $result_yml .= "<version>".get_bloginfo('version')."</version>".PHP_EOL;
 
  if (class_exists('WOOCS')) { 
-	$yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed);
+	$yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed, 'set_arr');
 	if ($yfym_wooc_currencies !== '') {
 		global $WOOCS;
 		$WOOCS->set_currency($yfym_wooc_currencies);
@@ -27,25 +27,28 @@ function yfym_feed_header($numFeed = '1') {
  }
 
  /* общие параметры */
- $res = get_woocommerce_currency(); // получаем валюта магазина
- $rateCB = '';
- switch ($res) { /* RUR, USD, EUR, UAH, KZT, BYN */
-	case "RUB": $currencyId_yml = "RUR"; break;
-	case "USD": $currencyId_yml = "USD"; $rateCB = "CB"; break;
-	case "EUR": $currencyId_yml = "EUR"; $rateCB = "CB"; break;
-	case "UAH": $currencyId_yml = "UAH"; break;
-	case "KZT": $currencyId_yml = "KZT"; break;
-	case "BYN": $currencyId_yml = "BYN"; break;	
-	case "BYR": $currencyId_yml = "BYN"; break;
-	case "ABC": $currencyId_yml = "BYN"; break;	
-	default: $currencyId_yml = "RUR"; 
- }
- $rateCB = apply_filters('yfym_rateCB', $rateCB, $numFeed); /* с версии 2.3.1 */
- $currencyId_yml = apply_filters('yfym_currency_id', $currencyId_yml, $numFeed); /* с версии 3.3.15 */
- if ($rateCB == '') {
-	$result_yml .= '<currencies>'. PHP_EOL .'<currency id="'.$currencyId_yml.'" rate="1"/>'. PHP_EOL .'</currencies>'.PHP_EOL;
- } else {
-	$result_yml .= '<currencies>'. PHP_EOL .'<currency id="RUR" rate="1"/>'. PHP_EOL .'<currency id="'.$currencyId_yml.'" rate="'.$rateCB.'"/>'. PHP_EOL .'</currencies>'.PHP_EOL;		
+ $yfym_currencies = yfym_optionGET('yfym_currencies', $numFeed, 'set_arr');
+ if ($yfym_currencies !== 'disabled') {
+	$res = get_woocommerce_currency(); // получаем валюта магазина
+	$rateCB = '';
+	switch ($res) { /* RUR, USD, EUR, UAH, KZT, BYN */
+		case "RUB": $currencyId_yml = "RUR"; break;
+		case "USD": $currencyId_yml = "USD"; $rateCB = "CB"; break;
+		case "EUR": $currencyId_yml = "EUR"; $rateCB = "CB"; break;
+		case "UAH": $currencyId_yml = "UAH"; break;
+		case "KZT": $currencyId_yml = "KZT"; break;
+		case "BYN": $currencyId_yml = "BYN"; break;	
+		case "BYR": $currencyId_yml = "BYN"; break;
+		case "ABC": $currencyId_yml = "BYN"; break;	
+		default: $currencyId_yml = "RUR"; 
+	}
+	$rateCB = apply_filters('yfym_rateCB', $rateCB, $numFeed); /* с версии 2.3.1 */
+	$currencyId_yml = apply_filters('yfym_currency_id', $currencyId_yml, $numFeed); /* с версии 3.3.15 */
+	if ($rateCB == '') {
+		$result_yml .= '<currencies>'. PHP_EOL .'<currency id="'.$currencyId_yml.'" rate="1"/>'. PHP_EOL .'</currencies>'.PHP_EOL;
+	} else {
+		$result_yml .= '<currencies>'. PHP_EOL .'<currency id="RUR" rate="1"/>'. PHP_EOL .'<currency id="'.$currencyId_yml.'" rate="'.$rateCB.'"/>'. PHP_EOL .'</currencies>'.PHP_EOL;		
+	}
  }
  // $terms = get_terms("product_cat");
  if (get_bloginfo('version') < '4.5') {
@@ -84,19 +87,19 @@ function yfym_feed_header($numFeed = '1') {
  $result_yml = apply_filters('yfym_append_categories_filter', $result_yml, $numFeed);
  $result_yml .= '</categories>'.PHP_EOL; 
 		 
- $yfym_delivery_options = yfym_optionGET('yfym_delivery_options', $numFeed);
+ $yfym_delivery_options = yfym_optionGET('yfym_delivery_options', $numFeed, 'set_arr');
  if ($yfym_delivery_options === 'on') {
-	$delivery_cost = yfym_optionGET('yfym_delivery_cost', $numFeed);
-	$delivery_days = yfym_optionGET('yfym_delivery_days', $numFeed);
-	$order_before = yfym_optionGET('yfym_order_before', $numFeed);
+	$delivery_cost = yfym_optionGET('yfym_delivery_cost', $numFeed, 'set_arr');
+	$delivery_days = yfym_optionGET('yfym_delivery_days', $numFeed, 'set_arr');
+	$order_before = yfym_optionGET('yfym_order_before', $numFeed, 'set_arr');
 	if ($order_before == '') {$order_before_yml = '';} else {$order_before_yml = ' order-before="'.$order_before.'"';} 
 	$result_yml .= '<delivery-options>'.PHP_EOL;
 	$result_yml .= '<option cost="'.$delivery_cost.'" days="'.$delivery_days.'"'.$order_before_yml.'/>'.PHP_EOL;
-	$yfym_delivery_options2 = yfym_optionGET('yfym_delivery_options2', $numFeed);
+	$yfym_delivery_options2 = yfym_optionGET('yfym_delivery_options2', $numFeed, 'set_arr');
 	if ($yfym_delivery_options2 === 'on') {
-		$delivery_cost2 = yfym_optionGET('yfym_delivery_cost2', $numFeed);
-		$delivery_days2 = yfym_optionGET('yfym_delivery_days2', $numFeed);
-		$order_before2 = yfym_optionGET('yfym_order_before2', $numFeed);
+		$delivery_cost2 = yfym_optionGET('yfym_delivery_cost2', $numFeed, 'set_arr');
+		$delivery_days2 = yfym_optionGET('yfym_delivery_days2', $numFeed, 'set_arr');
+		$order_before2 = yfym_optionGET('yfym_order_before2', $numFeed, 'set_arr');
 		if ($order_before2 == '') {$order_before_yml2 = '';} else {$order_before_yml2 = ' order-before="'.$order_before2.'"';} 
 		$result_yml .= '<option cost="'.$delivery_cost2.'" days="'.$delivery_days2.'"'.$order_before_yml2.'/>'.PHP_EOL;
 	}
@@ -104,7 +107,7 @@ function yfym_feed_header($numFeed = '1') {
  }	
 			
  // магазин 18+
- $adult = yfym_optionGET('yfym_adult', $numFeed);
+ $adult = yfym_optionGET('yfym_adult', $numFeed, 'set_arr');
  if ($adult === 'yes') {$result_yml .= '<adult>true</adult>'.PHP_EOL;}		
  /* end общие параметры */		
  do_action('yfym_before_offers');
@@ -118,7 +121,7 @@ function yfym_unit($postId, $numFeed='1') {
  $result_yml = ''; $ids_in_yml = ''; $skip_flag = false;
 
  if (class_exists('WOOCS')) { 
-	$yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed);
+	$yfym_wooc_currencies = yfym_optionGET('yfym_wooc_currencies', $numFeed, 'set_arr');
 	if ($yfym_wooc_currencies !== '') {
 		global $WOOCS;
 		$WOOCS->set_currency($yfym_wooc_currencies);
@@ -132,7 +135,7 @@ function yfym_unit($postId, $numFeed='1') {
  
  // что выгружать
  if ($product->is_type('variable')) {
-	$yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed);
+	$yfym_whot_export = yfym_optionGET('yfym_whot_export', $numFeed, 'set_arr');
 	if ($yfym_whot_export === 'simple') {yfym_error_log('FEED № '.$numFeed.'; Товар с postId = '.$postId.' пропущен т.к вариативный; Файл: offer.php; Строка: '.__LINE__, 0); return $result_yml;}
  }
 
@@ -159,7 +162,7 @@ function yfym_unit($postId, $numFeed='1') {
  $currencyId_yml = apply_filters('yfym_currency_id', $currencyId_yml, $numFeed); /* с версии 3.3.15 */
 		  
  // Возможность купить товар в розничном магазине. // true или false
- $store = yfym_optionGET('yfym_store', $numFeed);
+ $store = yfym_optionGET('yfym_store', $numFeed, 'set_arr');
  if ($store === false || $store == '') {
 	yfym_error_log('FEED № '.$numFeed.'; WARNING: Товар с postId = '.$postId.' вернул пустой $result_yml_store; Файл: old.php; Строка: '.__LINE__, 0);
 	$result_yml_store = '';
@@ -169,9 +172,9 @@ function yfym_unit($postId, $numFeed='1') {
 
  if (get_post_meta($postId, 'yfym_individual_delivery', true) !== '') {	
 	$delivery = get_post_meta($postId, 'yfym_individual_delivery', true);
-	if ($delivery === 'off') {$delivery = yfym_optionGET('yfym_delivery', $numFeed);}
+	if ($delivery === 'off') {$delivery = yfym_optionGET('yfym_delivery', $numFeed, 'set_arr');}
  } else {
- 	$delivery = yfym_optionGET('yfym_delivery', $numFeed);
+ 	$delivery = yfym_optionGET('yfym_delivery', $numFeed, 'set_arr');
  }
  if ($delivery === false || $delivery == '') {
 	yfym_error_log('FEED № '.$numFeed.'; WARNING: Товар с postId = '.$postId.' вернул пустой $delivery; Файл: old.php; Строка: '.__LINE__, 0);
@@ -190,9 +193,9 @@ function yfym_unit($postId, $numFeed='1') {
 
  if (get_post_meta($postId, 'yfym_individual_pickup', true) !== '') {	
 	$pickup = get_post_meta($postId, 'yfym_individual_pickup', true);
-	if ($pickup === 'off') {$pickup = yfym_optionGET('yfym_pickup', $numFeed);}
+	if ($pickup === 'off') {$pickup = yfym_optionGET('yfym_pickup', $numFeed, 'set_arr');}
  } else {
- 	$pickup = yfym_optionGET('yfym_pickup', $numFeed);
+ 	$pickup = yfym_optionGET('yfym_pickup', $numFeed, 'set_arr');
  }
  if ($pickup === false || $pickup == '') {
 	yfym_error_log('FEED № '.$numFeed.'; WARNING: Товар с postId = '.$postId.' вернул пустой $pickup; Файл: old.php; Строка: '.__LINE__, 0);
@@ -206,8 +209,8 @@ function yfym_unit($postId, $numFeed='1') {
  /* с версии 2.0.7 в фильтр добавлен параметр $product */
 		  
  // описание
- $yfym_desc = yfym_optionGET('yfym_desc', $numFeed);
- $yfym_the_content = yfym_optionGET('yfym_the_content', $numFeed);
+ $yfym_desc = yfym_optionGET('yfym_desc', $numFeed, 'set_arr');
+ $yfym_the_content = yfym_optionGET('yfym_the_content', $numFeed, 'set_arr');
 
  switch ($yfym_desc) { 
 	case "full": $description_yml = $product->get_description(); break;
@@ -328,7 +331,7 @@ function yfym_unit($postId, $numFeed='1') {
  * $termin->count - количество содержащихся в нем постов
  */	
 
- $vat = yfym_optionGET('yfym_vat', $numFeed);
+ $vat = yfym_optionGET('yfym_vat', $numFeed, 'set_arr');
  if ($vat === 'disabled') {$result_yml_vat = '';} else {
 	if (get_post_meta($postId, 'yfym_individual_vat', true) !== '') {$individual_vat = get_post_meta($postId, 'yfym_individual_vat', true);} else {$individual_vat = 'global';}
 	if ($individual_vat === 'global') {
@@ -357,9 +360,9 @@ function yfym_unit($postId, $numFeed='1') {
 	'special_data_for_flag' => $special_data_for_flag,
 	'params_arr' => $params_arr
  );
-
+ yfym_error_log('FEED № '.$numFeed.'; 1; Файл: offer.php; Строка: '.__LINE__, 0);	
  $res_yml = null;
- $yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed);
+ $yfym_yml_rules = yfym_optionGET('yfym_yml_rules', $numFeed, 'set_arr');
  switch ($yfym_yml_rules) {
 	case "yandex_market": $res_yml = yfym_adv($postId, $product, $data, $numFeed); break;
 	case "single_catalog": $res_yml = yfym_single_catalog($postId, $product, $data, $numFeed); break;	
